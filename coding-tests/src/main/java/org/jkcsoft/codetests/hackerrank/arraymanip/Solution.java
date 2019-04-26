@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.function.ToIntFunction;
 
 /**
  * @author Jim Coles
@@ -148,15 +149,21 @@ public class Solution {
 
         public long arrayManipIntervalTracking(int numValues, int[][] queries) {
             log("pre sort");
-            Arrays.sort(queries,
-                        Comparator.<int[]>comparingInt(intAr -> intAr[0])
-                            .thenComparing(intAr -> intAr[1] - intAr[0])
-            );
+            ToIntFunction<int[]> getStartIdx = intAr -> intAr[0];
+            ToIntFunction<int[]> getRangeSize = intAr -> intAr[1] - intAr[0];
+            ToIntFunction<int[]> getEndIdx = intAr -> intAr[1];
+            ToIntFunction<int[]> getValue = intAr -> intAr[2];
+
+            Comparator<int[]> compByStartThenByRange =
+                Comparator
+                    .comparingInt(getStartIdx)
+                    .thenComparingInt(getEndIdx);
+            Arrays.sort(queries, compByStartThenByRange);
             log("post sort");
             AddValueQuery addValueQuery = null;
 
             ValueDocument doc = new ValueDocument(numValues);
-            doc.insertRangeNode(new RangeNode(1, numValues, 0));
+            doc.insertRangeNode(new RangeNode(-1, 1, numValues, 0));
             log("Doc: " + doc);
             for (int[] arQuery : queries) {
                 addValueQuery = new AddValueQuery(arQuery[0], arQuery[1], arQuery[2]);
@@ -219,7 +226,9 @@ public class Solution {
         public static class ValueDocument {
 
             private int numLines;
-            private TreeMap<Integer, RangeNode> rangeNodeMap = new TreeMap<>();
+            private TreeMap<Integer, RangeNode> rangeMapByStartIdx = new TreeMap<>();
+            private TreeMap<Integer, RangeNode> rangeMapByEndIdx = new TreeMap<>();
+//            private TreeMap<Long, RangeNode> rangeMapByValue = new TreeMap<>();
             //        private List<RangeNode> nodeList =
             private int modCount;
             private long maxValue;
@@ -230,100 +239,148 @@ public class Solution {
                 this.numLines = numLines;
             }
 
-            public TreeMap<Integer, RangeNode> getRangeNodeMap() {
-                return rangeNodeMap;
-            }
-
             public void insertRangeNode(RangeNode newRange) {
                 if (shouldLog())
                     log("\t\tinserting node: " + newRange);
-                rangeNodeMap.put(newRange.getIntRange().getNdx1(), newRange);
+                if (newRange.getIntRange().getNdx2() < newRange.getIntRange().getNdx1())
+                    throw new IllegalArgumentException("new range is invalid ["+newRange+"]");
+                rangeMapByStartIdx.put(newRange.getIntRange().getNdx1(), newRange);
+                rangeMapByEndIdx.put(newRange.getIntRange().getNdx2(), newRange);
+//                rangeMapByValue.put(newRange.getValue(), newRange);
             }
 
             /**
              *          0        1         2         3         4
              *          1234567890123456789012345678901234567890
-             *  Before  |--|    |---------|  |--| |---| |----|
-             *  Query              |------------------|
-             *                        +V    V +V V +V
-             *  After   |--|    |--|------|--|--|-|---| |----|
+             *  Init    |----------------------------------|
              *
-             * new map = head + (tail - head of tail).
+             *                     ...
              *
-             * @param addValueQuery
+             *  Before  |--||--||------||--||------||--||--|
+             *  Query               |----------|
+             *                        +   +   +
+             *  After   |--||--||--||--||--||--||--||--||--|
+             *            1   1  2a  2b  3   4a  4b  5   5
+             *
+             * Cases:
+             *
+             * Assumption: Ranges initialized with a single fully-covering range.
+             *
+             * 1. Unaffected existing head ranges.
+             * 2. "Gray" existing head range (overlaps head of new range). Must split into two.
+             * 3. Fully overlapped existing ranges.
+             * 4. "Gray" existing tail range (overlaps tail of new range). Must split into two.
+             * 5. Unaffected existing tail ranges.
+             *
+             * So we only need to compute cases 2, 3, and 4.
+             *
+             * @param theQuery
              * @return
              */
-            public void applyMod(AddValueQuery addValueQuery) {
+            public void applyMod(AddValueQuery theQuery) {
                 modCount++;
-//        RangeNode exactNd1Node = rangeDoc.get(addValueQuery.getNdx1());
-//        RangeNode exactNd2Node = rangeDoc.get(addValueQuery.getNdx2());
                 // 1. Break existing nodes into
                 //    - head and tail, unaffected by query
                 //    - sequence of fully-overlapped nodes
                 //    - 0, 1, or 2 nodes with partial overlap at the ends of the query
                 if (shouldLog())
-                    log("\t" + addValueQuery);
+                    log("\t" + theQuery);
 
-                LinkedList<RangeNode> overlapNodes;
-                IntRange qr = addValueQuery.getIntRange();
-                if (qr.getNdx1() > lastQueryNdx1) {
+                IntRange theQr = theQuery.getIntRange();
+                if (theQr.getNdx1() > lastQueryNdx1) {
+                    // only test for droppable nodes if we have just jumped to a new start level.
                     testDrops = true;
-                    this.lastQueryNdx1 = qr.getNdx1();
+                    this.lastQueryNdx1 = theQr.getNdx1();
                 }
 
-                Map.Entry<Integer, RangeNode> headGrayEntry = getRangeNodeMap().floorEntry(qr.getNdx1());
-                // handle boundary case nodes
-                RangeNode headGrayNode = headGrayEntry != null ? headGrayEntry.getValue() : null;
-                RangeNode headPartial = null;
-                if (headGrayNode != null && headGrayNode.getIntRange().getNdx2() >= qr.getNdx1()) {
-                    headPartial = headGrayNode;
-                    // query partially overlaps last head node
-                    Intersection headIntx = headPartial.getIntRange().intersection(addValueQuery.intRange);
-                    // track
-                    RangeNode tailRemaining = headPartial.copy();
+                // Deal with HEAD overlap cases ...
+                // |----------||---||--->
+                //       |----------|
+                // floorEntry() method, entry.ndx1 <= arg.ndx1; so, headGray might be fully overlapped by query
+                // or might have some overhang
 
-                    // adjust existing node: clip overlap tail, no value change
-                    headPartial.getIntRange().setNdx2(headIntx.intersection.ndx1 - 1);
+                // floorEntry(): entry <= (to the left of) arg; could be fully overlapped
+                Map.Entry<Integer, RangeNode> leftGrayEntry = rangeMapByStartIdx.floorEntry(theQr.getNdx1());
+                RangeNode leftGrayNode = leftGrayEntry != null ? leftGrayEntry.getValue() : null;
+                // tailMap(): entries >= (to the right of) arg (incl=TRUE); will NOT include gray head
+                // headMap(): entries <= (to the left of) arg (incl=TRUE); will include gray tail if it exists
+                // and is not the same as the leftGrayNode
+                LinkedList<RangeNode> overlapList = new LinkedList<>(
+                    rangeMapByStartIdx.tailMap(theQr.getNdx1(), true).headMap(theQr.getNdx2(), true).values()
+                );
+                RangeNode rightGrayNode = overlapList.size() > 0 ? overlapList.getLast() : null;
+
+                // handle boundary case nodes
+                Intersection leftGrayIntx = leftGrayNode != null ? theQr.intersection(leftGrayNode.getIntRange()) : null;
+                if ( leftGrayIntx != null
+                     && leftGrayIntx.intersection.size() > 0 )
+                {
+                    // Keep track in case existing node tail off the query range
+                    RangeNode possibleRightRemainder = leftGrayNode.copy();
+
+                    // if non-zero left overhang, adjust existing node: clip overlap tail, no value change
+                    if (leftGrayNode.getIntRange().getNdx1() < leftGrayIntx.intersection.getNdx1()) {
+                        modRangeNdx2(leftGrayNode, leftGrayIntx.intersection.ndx1 - 1);
+                    }
+
                     // add new node for overlap, (next step will increment)
-                    RangeNode newOverlapNode = new RangeNode(headIntx.intersection.ndx1,
-                                                             headIntx.intersection.ndx2,
-                                                             headPartial.getValue());
-                    insertRangeNode(newOverlapNode);
-//            doc.setMaxValueIf(newOverlapNode);
+                    RangeNode newLeftOverlapNode = new RangeNode(modCount,
+                                                             leftGrayIntx.intersection.ndx1,
+                                                             leftGrayIntx.intersection.ndx2,
+                                                             leftGrayNode.getValue());
+                    insertRangeNode(newLeftOverlapNode);
+                    overlapList.addFirst(newLeftOverlapNode);
 
                     // possibly add new remaining tail of original node that was just split up
-                    if (tailRemaining.getIntRange().getNdx2() > newOverlapNode.getIntRange().getNdx2()) {
-                        tailRemaining.getIntRange().setNdx1(newOverlapNode.getIntRange().getNdx2() + 1);
-                        insertRangeNode(tailRemaining);
+                    if (possibleRightRemainder.getIntRange().getNdx2() > newLeftOverlapNode.getIntRange().getNdx2()) {
+                        possibleRightRemainder.getIntRange().setNdx1(newLeftOverlapNode.getIntRange().getNdx2() + 1);
+                        insertRangeNode(possibleRightRemainder);
                     }
-//            log("Branched partial head overlap: " + newOverlapNode);
+//            log("Branched partial head overlap: " + newLeftOverlapNode);
                 }
                 //
-                overlapNodes = new LinkedList<>(
-                    getRangeNodeMap().tailMap(qr.getNdx1(), true)
-                                     .headMap(qr.getNdx2(), true).values()
-                );
-                //
-                RangeNode tailGrayNode = overlapNodes.getLast();
-                if (tailGrayNode != null && tailGrayNode.getIntRange().getNdx2() > qr.getNdx2()) {
-                    RangeNode tailRemainder = tailGrayNode.copy();
-                    tailGrayNode.getIntRange().setNdx2(qr.getNdx2());
-                    tailRemainder.getIntRange().setNdx1(qr.getNdx2() + 1);
-                    insertRangeNode(tailRemainder);
+                if (rightGrayNode != null
+                    && rightGrayNode != leftGrayNode // if lgn == rgn then rgn has already been processed
+                    && rightGrayNode.getIntRange().getNdx2() > theQr.getNdx2() /* rgn is not fully overlapped*/ )
+                {
+                    // rgn overlaps the query right limit
+                    RangeNode newRightRemainder = rightGrayNode.copy();
+                    modRangeNdx2(rightGrayNode, theQr.getNdx2());
+                    newRightRemainder.getIntRange().setNdx1(theQr.getNdx2() + 1);
+                    insertRangeNode(newRightRemainder);
                 }
+
                 // increment all existing overlapped nodes
-                for (RangeNode node : overlapNodes) {
-                    node.incValue(addValueQuery.getValue());
+                for (RangeNode node : overlapList) {
+                    node.incValue(modCount, theQuery.getValue());
                     setMaxValueIf(node);
                 }
 
                 // drop any nodes that can not possibly increase beyond current max
                 if (testDrops)
-                    dropDeadNodes(qr.getNdx1());
+                    dropDeadNodes(theQr.getNdx1());
+            }
+
+            private boolean isPartialOverlap(IntRange qr,
+                                             RangeNode headGrayNode)
+            {
+                return headGrayNode != null && headGrayNode.getIntRange().getNdx2() >= qr.getNdx1();
+            }
+
+            private void modRangeNdx2(RangeNode rangeNode, int newIdx) {
+                rangeMapByEndIdx.remove(rangeNode.getIntRange().getNdx2(), rangeNode);
+                rangeNode.getIntRange().setNdx2(newIdx);
+                rangeMapByEndIdx.put(rangeNode.getIntRange().getNdx2(), rangeNode);
+            }
+
+            private void modRangeNdx1(RangeNode rangeNode, int newIdx) {
+                rangeMapByStartIdx.remove(rangeNode.getIntRange().getNdx1(), rangeNode);
+                rangeNode.getIntRange().setNdx1(newIdx);
+                rangeMapByStartIdx.put(rangeNode.getIntRange().getNdx1(), rangeNode);
             }
 
             private void dropDeadNodes(int newGroupStartNdx) {
-                Collection<RangeNode> nodes = rangeNodeMap.values();
+                Collection<RangeNode> nodes = rangeMapByEndIdx.headMap(newGroupStartNdx, false).values();
                 List<RangeNode> drops = null;
                 for (RangeNode node : nodes) {
                     if (node.getIntRange().getNdx2() < newGroupStartNdx) {
@@ -338,12 +395,22 @@ public class Solution {
                 }
                 if (drops != null) {
                     drops.forEach((RangeNode node) -> {
-                        rangeNodeMap.remove(node.getIntRange().getNdx1());
+                        removeRange(node);
                     });
                     if (shouldLog())
-                        log("dropping " + drops.size() + " nodes; current nodes count: " + rangeNodeMap.size());
+                        log("dropping " + drops.size() + " nodes; current nodes count: " + rangeMapByStartIdx.size());
                 }
                 testDrops = false;
+            }
+
+            private void removeRange(RangeNode node) {
+                if (!rangeMapByStartIdx.remove(node.getIntRange().getNdx1(), node))
+                    throw new IllegalStateException("node ["+node+"] not found in start idx map");
+                if (!rangeMapByEndIdx.remove(node.getIntRange().getNdx2(), node))
+                    throw new IllegalStateException("node ["+node+"] not found in end idx map");
+
+                if (rangeMapByStartIdx.values().size() != rangeMapByEndIdx.values().size())
+                    throw new IllegalStateException("index sizes not equal");
             }
 
             public void setMaxValueIf(RangeNode node) {
@@ -365,15 +432,17 @@ public class Solution {
 
             @Override
             public String toString() {
+                int size = rangeMapByStartIdx.values().size();
+
                 StringBuilder sb = new StringBuilder(" modCount=" + modCount
-                                                         + " node count=" + rangeNodeMap.size()
+                                                         + " node count=" + size
                                                          + " max=" + fmt(maxValue)
                                                          + EOL
                 );
                 if (numLines <= 80) {
                     int width = (maxValue > 0 ? (int) Math.floor(Math.log(this.maxValue)) + 1 : 1) + 1;
                     String format = "%" + width + "d";
-                    Collection<RangeNode> nodes = rangeNodeMap.values();
+                    Collection<RangeNode> nodes = rangeMapByStartIdx.values();
                     for (RangeNode node : nodes) {
                         for (int ndx = node.getIntRange().ndx1; ndx <= node.getIntRange().getNdx2(); ndx++) {
                             sb.append(
@@ -399,11 +468,13 @@ public class Solution {
          */
         public static class RangeNode implements Comparable<RangeNode> {
             //        private RangeNode branchedFrom;
+            private int querySeqNum;
             private IntRange intRange;
             private long value;
 
-            public RangeNode(int ndx1, int ndx2, long value) {
+            public RangeNode(int queryId, int ndx1, int ndx2, long value) {
                 //          this.branchedFrom = branchedFrom;
+                this.querySeqNum = queryId;
                 this.intRange = new IntRange(ndx1, ndx2);
                 this.value = value;
             }
@@ -424,12 +495,21 @@ public class Solution {
                 this.value = value;
             }
 
-            public void incValue(long value) {
+            public void incValue(int querySeqNum, long value) {
+                this.querySeqNum = querySeqNum;
                 this.value += value;
             }
 
+            public int getQuerySeqNum() {
+                return querySeqNum;
+            }
+
+            public void setQuerySeqNum(int querySeqNum) {
+                this.querySeqNum = querySeqNum;
+            }
+
             public RangeNode copy() {
-                return new RangeNode(this.intRange.getNdx1(), this.intRange.getNdx2(), this.getValue());
+                return new RangeNode(this.querySeqNum, this.intRange.getNdx1(), this.intRange.getNdx2(), this.getValue());
             }
 
             @Override
@@ -439,7 +519,7 @@ public class Solution {
 
             @Override
             public String toString() {
-                return "Node: " + intRange + "=" + value;
+                return "Node(" + querySeqNum + "): " + intRange + "=" + value;
             }
         }
 
@@ -504,6 +584,9 @@ public class Solution {
                 return "(" + this.ndx1 + "," + this.ndx2 + ")";
             }
 
+            public int size() {
+                return ndx2 - ndx1 + 1;
+            }
         }
 
         public static class Intersection {
