@@ -15,11 +15,21 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>user-ms</module>
-        <module>user-react-js</module>
-        <module>user-resteasy-ws</module>
+
+        <!-- Core modules -->
+
+        <!-- App modules -->
+
         <module>user-webapp</module>
-        <module>user-ms-docker</module>
+        <module>user-react-js</module>
+        <module>user-raw-ms</module>
+<!--        <module>user-ms-docker</module>-->
+        <module>user-resteasy-ms</module>
+
+        <!-- Sample modules -->
+
+        <module>resteasy-sample-ws</module>
+
     </modules>
 
 </project>
