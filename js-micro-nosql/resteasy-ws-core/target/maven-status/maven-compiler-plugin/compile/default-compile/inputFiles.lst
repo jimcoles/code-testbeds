@@ -1,0 +1,9 @@
+/Users/jcoles/Source/jkc/testbeds/js-micro-nosql/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/shiro/BootstrapRestPackagesModule.java
+/Users/jcoles/Source/jkc/testbeds/js-micro-nosql/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/servlet/GenericGuiceContextListener.java
+/Users/jcoles/Source/jkc/testbeds/js-micro-nosql/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/shiro/BootstrapShiroModule.java
+/Users/jcoles/Source/jkc/testbeds/js-micro-nosql/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/shiro/ShiroMethodInterceptor.java
+/Users/jcoles/Source/jkc/testbeds/js-micro-nosql/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/shiro/BootstrapPropertiesModule.java
+/Users/jcoles/Source/jkc/testbeds/js-micro-nosql/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/servlet/GenericBootstrapConstants.java
+/Users/jcoles/Source/jkc/testbeds/js-micro-nosql/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/shiro/BootstrapServletModule.java
+/Users/jcoles/Source/jkc/testbeds/js-micro-nosql/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/shiro/ShiroAnnotationsModule.java
+/Users/jcoles/Source/jkc/testbeds/js-micro-nosql/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceRestEasyFilterDispatcher.java

@@ -2,17 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <parent>
         <artifactId>js-micro-nosql-parent</artifactId>
         <groupId>org.jkcsoft</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>user-resteasy-ms</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>user-db-mongo</artifactId>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,6 +26,7 @@
         <version.shiro>1.2.3</version.shiro>
         <jackson.version>2.9.9</jackson.version>
         <resteasy-jackson-provider.version>2.2.1.GA</resteasy-jackson-provider.version>
+        <mongo-java-driver.version>3.10.2</mongo-java-driver.version>
     </properties>
 
     <dependencies>
@@ -93,6 +91,19 @@
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jackson-provider</artifactId>
             <version>${resteasy-jackson-provider.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>${mongo-java-driver.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

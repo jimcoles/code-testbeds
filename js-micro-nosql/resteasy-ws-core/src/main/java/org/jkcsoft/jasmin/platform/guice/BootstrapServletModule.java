@@ -1,8 +1,9 @@
-package org.jkcsoft.jasmin.platform.shiro;
+package org.jkcsoft.jasmin.platform.guice;
 
 import com.google.inject.servlet.ServletModule;
 import org.apache.shiro.guice.web.GuiceShiroFilter;
-import org.jkcsoft.jasmin.platform.guice.GuiceRestEasyFilterDispatcher;
+import org.jkcsoft.jasmin.platform.shiro.BootstrapShiroModule;
+import org.jkcsoft.jasmin.platform.shiro.ShiroAnnotationsModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

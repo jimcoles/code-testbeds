@@ -1,4 +1,4 @@
-package org.jkcsoft.jasmin.platform.guice.servlet;
+package org.jkcsoft.jasmin.platform;
 
 /**
  * Generic constants for Bootstrapping the WebApp

@@ -1,7 +1,7 @@
-package org.jkcsoft.jasmin.platform.shiro;
+package org.jkcsoft.jasmin.platform.guice;
 
 import com.google.inject.AbstractModule;
-import org.jkcsoft.jasmin.platform.guice.servlet.GenericBootstrapConstants;
+import org.jkcsoft.jasmin.platform.GenericBootstrapConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,6 +16,35 @@ import java.util.List;
 public class BootstrapRestPackagesModule extends AbstractModule {
 
     private static final Logger log = LoggerFactory.getLogger(BootstrapRestPackagesModule.class);
+
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    @Override
+    protected void configure() {
+        bindWsClasses();
+    }
+
+    private void bindWsClasses() {
+        String[] pkgs = GenericBootstrapConstants.REST_EASY_REST_PACKAGES.split(",");
+
+        for (String pkg : pkgs) {
+//			if(pkg.trim().endsWith(GenericBootstrapConstants.REST_EASY_REST_PACKAGES_SUFFIX)){
+            log.info("found RESTful package: {}", pkg.trim());
+            Class[] lst = null;
+            try {
+                lst = getClasses(pkg.trim());
+            } catch (ClassNotFoundException | IOException e) {
+                log.error("{}, {}", e.getClass().getName(), e.getMessage());
+                e.printStackTrace();
+            }
+            for (Class c : lst) {
+                if (c.isAnnotationPresent(Path.class)) {
+                    log.info("found RestEasy Resource: {}", c.getName());
+                    bind(c);
+                }
+            }
+//			}
+        }
+    }
 
     /**
      * Scans all classes accessible from the context class loader which belong
@@ -75,31 +104,6 @@ public class BootstrapRestPackagesModule extends AbstractModule {
             }
         }
         return classes;
-    }
-
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    @Override
-    protected void configure() {
-        String[] pkgs = GenericBootstrapConstants.REST_EASY_REST_PACKAGES.split(",");
-
-        for (String pkg : pkgs) {
-//			if(pkg.trim().endsWith(GenericBootstrapConstants.REST_EASY_REST_PACKAGES_SUFFIX)){
-            log.info("found RESTful package: {}", pkg.trim());
-            Class[] lst = null;
-            try {
-                lst = getClasses(pkg.trim());
-            } catch (ClassNotFoundException | IOException e) {
-                log.error("{}, {}", e.getClass().getName(), e.getMessage());
-                e.printStackTrace();
-            }
-            for (Class c : lst) {
-                if (c.isAnnotationPresent(Path.class)) {
-                    log.info("found RestEasy Resource: {}", c.getName());
-                    bind(c);
-                }
-            }
-//			}
-        }
     }
 
 }

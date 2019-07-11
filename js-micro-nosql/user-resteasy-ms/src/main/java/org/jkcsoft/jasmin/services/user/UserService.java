@@ -1,13 +1,8 @@
 package org.jkcsoft.jasmin.services.user;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.inject.Inject;
 import com.google.inject.servlet.RequestScoped;
-import org.jkcsoft.jasmin.platform.shiro.BootstrapServletModule;
-import org.jkcsoft.jasmin.platform.shiro.ShiroAnnotationsModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +13,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,8 +21,6 @@ import java.util.Map;
  *
  * The constructor has Guice injections to enable also Shiro AOP annotations
  *
- * @see BootstrapServletModule
- * @see ShiroAnnotationsModule
  * @author pablo.biagioli
  *
  */

@@ -1,9 +1,8 @@
-package org.jkcsoft.jasmin.platform.guice.servlet;
+package org.jkcsoft.jasmin.platform.guice;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.servlet.GuiceServletContextListener;
-import org.jkcsoft.jasmin.platform.shiro.BootstrapServletModule;
 
 /**
  * This class goes mapped in web.xml and is used to inject Google Guice's Injector into the Web Application Context.

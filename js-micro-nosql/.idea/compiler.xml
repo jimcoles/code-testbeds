@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="user-resteasy-ms" />
-        <module name="user-ms-docker" />
-        <module name="user-react-js" />
         <module name="user-raw-ms" />
+        <module name="user-app-war" />
+        <module name="user-react-js" />
+        <module name="user-resteasy-ms" />
         <module name="resteasy-sample-ws" />
+        <module name="user-db-mongo" />
         <module name="user-webapp" />
+        <module name="resteasy-ws-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

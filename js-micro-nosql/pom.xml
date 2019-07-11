@@ -14,21 +14,47 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jkcsoft</groupId>
+                <artifactId>resteasy-ws-core</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jkcsoft</groupId>
+                <artifactId>user-resteasy-ms</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jkcsoft</groupId>
+                <artifactId>user-db-mongo</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <modules>
 
         <!-- Core modules -->
+
+        <module>resteasy-ws-core</module>
 
         <!-- App modules -->
 
         <module>user-webapp</module>
         <module>user-react-js</module>
         <module>user-raw-ms</module>
-<!--        <module>user-ms-docker</module>-->
         <module>user-resteasy-ms</module>
+
+        <!-- Aseemblies in various forms -->
+        <module>user-app-war</module>
+        <!--        <module>user-ms-docker</module>-->
 
         <!-- Sample modules -->
 
         <module>resteasy-sample-ws</module>
+        <module>user-db-mongo</module>
 
     </modules>
 

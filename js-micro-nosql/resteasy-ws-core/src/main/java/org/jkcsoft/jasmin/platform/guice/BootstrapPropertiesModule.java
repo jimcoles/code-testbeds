@@ -1,8 +1,8 @@
-package org.jkcsoft.jasmin.platform.shiro;
+package org.jkcsoft.jasmin.platform.guice;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
-import org.jkcsoft.jasmin.platform.guice.servlet.GenericBootstrapConstants;
+import org.jkcsoft.jasmin.platform.GenericBootstrapConstants;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

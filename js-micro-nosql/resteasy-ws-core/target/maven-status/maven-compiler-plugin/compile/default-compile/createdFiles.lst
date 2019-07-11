@@ -1,0 +1,10 @@
+org/jkcsoft/jasmin/platform/guice/servlet/GenericGuiceContextListener.class
+org/jkcsoft/jasmin/platform/shiro/ShiroMethodInterceptor$ShiroMethodInvocation.class
+org/jkcsoft/jasmin/platform/shiro/BootstrapShiroModule.class
+org/jkcsoft/jasmin/platform/shiro/BootstrapRestPackagesModule.class
+org/jkcsoft/jasmin/platform/guice/GuiceRestEasyFilterDispatcher.class
+org/jkcsoft/jasmin/platform/guice/servlet/GenericBootstrapConstants.class
+org/jkcsoft/jasmin/platform/shiro/ShiroAnnotationsModule.class
+org/jkcsoft/jasmin/platform/shiro/ShiroMethodInterceptor.class
+org/jkcsoft/jasmin/platform/shiro/BootstrapServletModule.class
+org/jkcsoft/jasmin/platform/shiro/BootstrapPropertiesModule.class
