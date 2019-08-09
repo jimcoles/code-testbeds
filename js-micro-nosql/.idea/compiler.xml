@@ -8,16 +8,22 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user-raw-ms" />
         <module name="user-app-war" />
+        <module name="user-db-mongo-ms" />
         <module name="user-react-js" />
         <module name="user-resteasy-ms" />
         <module name="resteasy-sample-ws" />
-        <module name="user-db-mongo" />
         <module name="user-webapp" />
-        <module name="resteasy-ws-core" />
+        <module name="test-harness" />
+        <module name="user-shared-data" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="user-ms-docker" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="resteasy-ws-core" options="-proc:none" />
+    </option>
   </component>
 </project>

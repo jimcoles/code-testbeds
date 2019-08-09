@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>shiro-guice-restEasy-template Project</display-name>
   <listener>
-    <listener-class>org.jkcsoft.jasmin.platform.guice.GenericGuiceContextListener</listener-class>
+    <listener-class>org.jkcsoft.jasmin.platform.guice.GuiceInjectorContextListener</listener-class>
   </listener>
   <filter>
     <filter-name>guiceFilter</filter-name>

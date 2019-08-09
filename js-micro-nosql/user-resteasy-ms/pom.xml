@@ -14,23 +14,6 @@
     <artifactId>user-resteasy-ms</artifactId>
     <packaging>jar</packaging>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <timestamp>${maven.build.timestamp}</timestamp>
-        <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
-
-        <!-- deploying for localhost development -->
-        <version.resteasy>3.0.9.Final</version.resteasy>
-        <!-- SAL Core jar version -->
-        <version.junit>4.10</version.junit>
-        <version.guice>3.0</version.guice>
-        <version.servlet>3.0</version.servlet>
-        <version.shiro>1.2.3</version.shiro>
-        <jackson.version>2.9.9</jackson.version>
-        <resteasy-jackson-provider.version>2.2.1.GA</resteasy-jackson-provider.version>
-    </properties>
-
     <dependencies>
 
         <!-- Java standard -->
@@ -38,7 +21,6 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
 
@@ -47,52 +29,54 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.6.4</version>
         </dependency>
 
         <dependency>
             <groupId>com.google.inject.extensions</groupId>
             <artifactId>guice-servlet</artifactId>
-            <version>${version.guice}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-web</artifactId>
-            <version>${version.shiro}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-guice</artifactId>
-            <version>${version.shiro}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jaxrs</artifactId>
-            <version>${version.resteasy}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-guice</artifactId>
-            <version>${version.resteasy}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jackson-provider</artifactId>
-            <version>${resteasy-jackson-provider.version}</version>
+        </dependency>
+
+        <!-- Inter-project deps -->
+
+        <dependency>
+            <groupId>org.jkcsoft</groupId>
+            <artifactId>resteasy-ws-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jkcsoft</groupId>
+            <artifactId>user-shared-data</artifactId>
         </dependency>
 
     </dependencies>

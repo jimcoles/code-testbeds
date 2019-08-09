@@ -23,7 +23,7 @@
         </dependency>
         <dependency>
             <groupId>org.jkcsoft</groupId>
-            <artifactId>user-db-mongo</artifactId>
+            <artifactId>user-db-mongo-ms</artifactId>
         </dependency>
     </dependencies>
 
