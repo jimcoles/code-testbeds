@@ -12,5 +12,11 @@
     <artifactId>user-shared-data</artifactId>
     <description>POJO data classes shared across micro-services.
     </description>
+    <dependencies>
+        <dependency>
+            <groupId>org.jkcsoft</groupId>
+            <artifactId>resteasy-ws-core</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

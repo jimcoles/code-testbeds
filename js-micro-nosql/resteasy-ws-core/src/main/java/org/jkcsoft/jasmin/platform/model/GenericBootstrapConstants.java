@@ -1,4 +1,4 @@
-package org.jkcsoft.jasmin.platform;
+package org.jkcsoft.jasmin.platform.model;
 
 /**
  * Generic constants for Bootstrapping the WebApp
@@ -21,4 +21,5 @@ public class GenericBootstrapConstants {
 	public static final String BOOTSTRAP_PROPERTIES_FILE="bootstrap.properties";
 
 	public static final String REST_EASY_CLASSES = "resteasy.serviceClasses";
+    public static final String KEY_BOOSTRAP_PROPERTIES = "boostrapProperties";
 }

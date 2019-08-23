@@ -1,18 +1,18 @@
 package org.jkcsoft.jasmin.platform.guice;
 
 import com.google.inject.AbstractModule;
-import com.google.inject.Guice;
-import com.google.inject.Inject;
-import org.jkcsoft.jasmin.platform.AppHome;
-import org.jkcsoft.jasmin.platform.GenericBootstrapConstants;
+import org.jkcsoft.jasmin.platform.AppInfoProvider;
+import org.jkcsoft.jasmin.platform.model.GenericBootstrapConstants;
 import org.jkcsoft.jasmin.platform.ws.ServiceRegistryImpl;
-import org.jkcsoft.jasmin.platform.ws.ServiceRegsitry;
+import org.jkcsoft.jasmin.platform.ws.ServiceRegistryProvider;
+import org.jkcsoft.jasmin.platform.ws.ServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.Path;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -22,44 +22,65 @@ public class RestServiceBindModule extends AbstractModule {
 
     private static final Logger log = LoggerFactory.getLogger(RestServiceBindModule.class);
 
-    @Inject
-    AppHome appHome;
+    private BootConfig bootConfig;
 
-    public RestServiceBindModule() {
-
+    public RestServiceBindModule(BootConfig bootConfig) {
+        this.bootConfig = bootConfig;
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
     protected void configure() {
 //        bindServicesByPackage();
-        bindAppServices();
+        bindAppFrameworkObjects();
         bindReServicesByDirectList();
     }
 
-    private void bindAppServices() {
-        bind(ServiceRegsitry.class).to(ServiceRegistryImpl.class);
+    private void bindAppFrameworkObjects() {
+        bind(ServiceRegistry.class).to(ServiceRegistryImpl.class);
     }
 
-    private void bindReServicesByDirectList() {
+    public void bindReServicesByDirectList() {
 
-        String[] serviceClassNames = appHome.getAppConfig().getServiceClasses();
+        String[] serviceClassNames = bootConfig.getServiceClasses();
+//        String[] serviceClassNames = new String[] {
+//            "org.jkcsoft.jasmin.services.user.UserService",
+//            "org.jkcsoft.jasmin.services.userdb.UserMongoDbService"
+//        };
         for (String className : serviceClassNames) {
-            Class c = null;
             try {
-                c = Class.forName(className);
-                if (c.isAnnotationPresent(Path.class)) {
-                    log.info("found RestEasy resource: {}", c.getName());
-                    // use the simplest form of binding: the concrete impl class binds to itself
-                    bind(c);
+                Class clazz = Class.forName(className);
+                if (AppInfoProvider.class.isAssignableFrom(clazz)) {
+                    log.info("configured class [{}] is an AppInfo", clazz.getName());
+                    try {
+                        Class<AppInfoProvider> classAip = (Class<AppInfoProvider>) clazz;
+                        AppInfoProvider aip = classAip.getDeclaredConstructor().newInstance();
+                        for (Class serviceClass : aip.getServiceClasses()) {
+                            bindAndRegister(serviceClass);
+                        }
+                    }
+                    catch (NoSuchMethodException | InstantiationException |
+                        IllegalAccessException | InvocationTargetException e) {
+                        log.error("AppInfo class [{}] instantiation threw an exception", className, e);
+                    }
+                }
+                if (clazz.isAnnotationPresent(Path.class)) {
+                    bindAndRegister(clazz);
                 }
                 else
-                    log.warn("configured RestEasy class [{}] does not have Path annotation", className);
+                    log.warn("configured RestEasy class [{}] is neither an AppInfo nor has Path annotation", className);
             }
             catch (ClassNotFoundException e) {
                 log.error("could not find configured RestEasy service class [{}]", className);
             }
         }
+    }
+
+    private void bindAndRegister(Class<Object> clazz) {
+        log.info("found RestEasy resource class [{}]", clazz.getName());
+        bind(clazz);
+        log.info("call guice bind on [{}]", clazz.getName());
+        ServiceRegistryProvider.getInstance().getImpl().registerLocalRsWsMethods(clazz);
     }
 
     /**
@@ -106,7 +127,7 @@ public class RestServiceBindModule extends AbstractModule {
      * @throws IOException
      */
     @SuppressWarnings({"rawtypes"})
-    private static Class[] getClasses(String packageName) throws ClassNotFoundException, IOException {
+    private Class[] getClasses(String packageName) throws ClassNotFoundException, IOException {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         assert classLoader != null;
         String path = packageName.replace('.', '/');
@@ -132,7 +153,7 @@ public class RestServiceBindModule extends AbstractModule {
      * @throws ClassNotFoundException
      */
     @SuppressWarnings("rawtypes")
-    private static List<Class> findClasses(File directory, String packageName)
+    private List<Class> findClasses(File directory, String packageName)
         throws ClassNotFoundException
     {
         List<Class> classes = new ArrayList<Class>();

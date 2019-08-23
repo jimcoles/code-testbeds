@@ -1,26 +1,31 @@
-package org.jkcsoft.jasmin.platform;
+package org.jkcsoft.jasmin.platform.guice;
 
-import javax.inject.Singleton;
+import com.google.inject.Inject;
+import org.jkcsoft.jasmin.platform.model.GenericBootstrapConstants;
+
+import javax.inject.Named;
 import java.util.Properties;
 
 /**
+ * This config object is used to create the Guice graph but is not available within the
+ * graph.
+ *
  * @author Jim Coles
  */
-@Singleton
-public class AppConfig {
+public class BootConfig {
 
     private String[] serviceClasses;
 
-    void setRestServiceClasses(String[] classes) {
-        this.serviceClasses = classes;
-    }
-
-    public AppConfig(Properties bootstrapProperties) {
+    public BootConfig(Properties bootstrapProperties) {
         String[] classNames = bootstrapProperties.getProperty(GenericBootstrapConstants.REST_EASY_CLASSES).split(",");
         for (int i = 0; i < classNames.length; i++) {
             classNames[i] = classNames[i].trim();
         }
         this.setRestServiceClasses(classNames);
+    }
+
+    void setRestServiceClasses(String[] classes) {
+        this.serviceClasses = classes;
     }
 
     public String[] getServiceClasses() {

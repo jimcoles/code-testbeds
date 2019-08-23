@@ -11,7 +11,7 @@ import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import org.jkcsoft.jasmin.platform.ws.ServiceRegsitry;
+import org.jkcsoft.jasmin.platform.ws.ServiceRegistry;
 import org.jkcsoft.jasmin.platform.ws.rs.AbstractWebService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,10 +46,10 @@ public class UserMongoDbService extends AbstractWebService {
      * NOTE: This form of constructor optional.
      */
     @Inject
-    public UserMongoDbService(ServiceRegsitry serviceRegsitry, HttpServletRequest request,
+    public UserMongoDbService(ServiceRegistry serviceRegistry, HttpServletRequest request,
                               HttpServletResponse response)
     {
-        super(serviceRegsitry, request, response);
+        super(serviceRegistry, request, response);
         this.bsonTrans = new UserPojoBsonTrans();
     }
 

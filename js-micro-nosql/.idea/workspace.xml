@@ -2,70 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91051313-cb24-4702-a570-e2323b627794" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/AppHome.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceModuleRegistrar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegsitry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/rs/AbstractWebService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/rs/RestAnnoProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/resources/META-INF/services/javax.annotation.processing.Processor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/test/java/org/jkcsoft/jasmin/test/TestReAnoProc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/test/java/org/jkcsoft/jasmin/test/UriBuilderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-harness/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-harness/src/main/java/org/jkcsoft/jasmin/testers/TestAnoProc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-harness/src/main/resources/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-db-mongo-ms/src/main/java/org/jkcsoft/jasmin/json/bson/JacksonBsonTrans.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-db-mongo-ms/src/main/java/org/jkcsoft/jasmin/services/userdb/UserPojoBsonTrans.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-shared-data/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-shared-data/src/main/java/org/jkcsoft/jasmin/lexicon/Services.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/AppInfoProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/AppStatic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/AppHomeProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/BootConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/model/AppHome.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/utils/AnnoUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/Endpoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/MethodInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ParamInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/RsServiceInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistryProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-app-war/src/main/java/org/jkcsoft/jasmin/app/JasminAppInfoProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-resteasy-ms/src/test/java/org/jkcsoft/jasmin/test/userservice/AnnoValueTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-shared-data/src/main/java/org/jkcsoft/jasmin/JasminApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-shared-data/src/main/java/org/jkcsoft/jasmin/api/Services.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/GenericBootstrapConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/GenericBootstrapConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/model/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/AppHome.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/GenericBootstrapConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/model/GenericBootstrapConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/BootstrapPropertiesModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/BootstrapPropertiesModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/BootstrapRestPackagesModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/RestServiceBindModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/BootstrapServletModule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GenericGuiceContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceInjectorContextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceRestEasyFilterDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/ResteasyFilterDispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/classes/bootstrap.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/classes/log4j.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/classes/org/jkcsoft/jasmin/platform/guice/GuiceRestEasyFilterDispatcher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/classes/org/jkcsoft/jasmin/platform/shiro/BootstrapShiroModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/target/classes/org/jkcsoft/jasmin/platform/shiro/BootstrapShiroModule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/classes/org/jkcsoft/jasmin/platform/shiro/ShiroAnnotationsModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/target/classes/org/jkcsoft/jasmin/platform/shiro/ShiroAnnotationsModule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/classes/org/jkcsoft/jasmin/platform/shiro/ShiroMethodInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/target/classes/org/jkcsoft/jasmin/platform/shiro/ShiroMethodInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/classes/shiro.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceInjectorContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceInjectorContextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceModuleRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceModuleRegistrar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/RestServiceBindModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/RestServiceBindModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegsitry.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/rs/AbstractWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/rs/AbstractWebService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-app-war/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-app-war/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-app-war/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-app-war/src/main/resources/bootstrap.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-app-war/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-app-war/src/main/resources/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-app-war/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-app-war/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-app-war/user-app-war.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-db-mongo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-db-mongo-ms/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-db-mongo/src/main/java/org/jkcsoft/jasmin/services/userdb/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-db-mongo-ms/src/main/java/org/jkcsoft/jasmin/services/userdb/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-db-mongo/src/main/java/org/jkcsoft/jasmin/services/userdb/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-db-mongo-ms/src/main/java/org/jkcsoft/jasmin/services/userdb/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-db-mongo/src/main/java/org/jkcsoft/jasmin/services/userdb/UserMongoDbService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-db-mongo-ms/src/main/java/org/jkcsoft/jasmin/services/userdb/UserMongoDbService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-db-mongo/src/test/java/org/jkcsoft/jasmin/test/UserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-db-mongo-ms/src/test/java/org/jkcsoft/jasmin/test/UserTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-db-mongo/src/test/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-db-mongo-ms/src/test/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-db-mongo/user-db-mongo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-raw-ms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-raw-ms/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-js/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-js/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-js/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-js/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-js/target/user-react-js-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-js/target/user-react-js-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-resteasy-ms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-resteasy-ms/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-resteasy-ms/src/main/java/org/jkcsoft/jasmin/services/user/UserRestModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-db-mongo-ms/src/main/java/org/jkcsoft/jasmin/services/userdb/UserMongoDbService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-db-mongo-ms/src/main/java/org/jkcsoft/jasmin/services/userdb/UserMongoDbService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-resteasy-ms/src/main/java/org/jkcsoft/jasmin/services/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-resteasy-ms/src/main/java/org/jkcsoft/jasmin/services/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-resteasy-ms/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-resteasy-ms/user-resteasy-ms.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-webapp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-webapp/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-shared-data/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-shared-data/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-shared-data/src/main/java/org/jkcsoft/jasmin/lexicon/Services.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,6 +73,9 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
@@ -120,8 +92,8 @@
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="org.jkcsoft.jasmin.resample" />
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="org.jkcsoft.jasmin.platform.ws" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/user-resteasy-ms/src/main" />
@@ -130,15 +102,22 @@
       <recent name="$PROJECT_DIR$/user-app-war/src/main" />
       <recent name="$PROJECT_DIR$/user-app-war/src/main/resources" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.jkcsoft.jasmin.services.userdb" />
-      <recent name="org.jkcsoft.jasmin.services.user" />
-      <recent name="org.jkcsoft.jasmin.guice" />
-      <recent name="org.jkcsoft.jasmin.guice.servlet" />
-      <recent name="org.jkcsoft.jasmin.shiro" />
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="org.jkcsoft.jasmin.platform.utils.AnnoUtil" />
+      <recent name="org.jkcsoft.jasmin.platform.model.GenericBootstrapConstants" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.jkcsoft.jasmin.resample" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="org.jkcsoft.jasmin.platform.ws" />
+      <recent name="org.jkcsoft.jasmin.services.userdb" />
+      <recent name="org.jkcsoft.jasmin.services.user" />
+      <recent name="org.jkcsoft.jasmin.guice" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -153,7 +132,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UriBuilderTest">
+  <component name="RunManager" selected="JUnit.AnnoValueTest">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -176,6 +155,22 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AnnoValueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="user-resteasy-ms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.jkcsoft.jasmin.test.userservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.jkcsoft.jasmin.test.userservice" />
+      <option name="MAIN_CLASS_NAME" value="org.jkcsoft.jasmin.test.userservice.AnnoValueTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -266,36 +261,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="docker/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="buildCliOptions" value="" />
-          <option name="command" value="" />
-          <option name="containerName" value="" />
-          <option name="entrypoint" value="" />
-          <option name="imageTag" value="" />
-          <option name="commandLineOptions" value="" />
-          <option name="sourceFilePath" value="user-ms-docker/src/main/docker/Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Application.TestAnoProc" />
-      <item itemvalue="Docker.docker/Dockerfile" />
       <item itemvalue="JUnit.UserTests" />
       <item itemvalue="JUnit.TestReAnoProc" />
       <item itemvalue="JUnit.UriBuilderTest" />
       <item itemvalue="Remote.Remote localhost 8000" />
+      <item itemvalue="JUnit.AnnoValueTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AnnoValueTest" />
         <item itemvalue="JUnit.UriBuilderTest" />
         <item itemvalue="Application.TestAnoProc" />
         <item itemvalue="JUnit.TestReAnoProc" />
         <item itemvalue="JUnit.UserTests" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_PROPERTIES,SHOW_FIELDS,SHOW_NON_PUBLIC" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -322,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1562867349074</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Been a while. Moved to Java 11/12. Added an HTTP client to user ws so it &#10;can call userdb via ws HTTP call. Still fooling with bootstrap init&#10;logic.">
+      <created>1565391163226</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1565391163226</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -353,16 +355,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Good progress on RestEasy Jackson JSON simple user service. &#10;Returning valid JSON from Java POJO." />
     <MESSAGE value="Checkin prior to some renaming of modules." />
-    <option name="LAST_COMMIT_MESSAGE" value="Checkin prior to some renaming of modules." />
+    <MESSAGE value="Been a while. Moved to Java 11/12. Added an HTTP client to user ws so it &#10;can call userdb via ws HTTP call. Still fooling with bootstrap init&#10;logic." />
+    <option name="LAST_COMMIT_MESSAGE" value="Been a while. Moved to Java 11/12. Added an HTTP client to user ws so it &#10;can call userdb via ws HTTP call. Still fooling with bootstrap init&#10;logic." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/com/google/inject/extensions/guice-servlet/3.0/guice-servlet-3.0-sources.jar!/com/google/inject/servlet/GuiceFilter.java</url>
-          <line>102</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jaxrs/3.0.9.Final/resteasy-jaxrs-3.0.9.Final.jar!/org/jboss/resteasy/plugins/server/tjws/TJWSRequestPreProcessor.class</url>
           <line>40</line>
@@ -379,92 +377,24 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/com/google/inject/extensions/guice-servlet/3.0/guice-servlet-3.0-sources.jar!/com/google/inject/servlet/GuiceFilter.java</url>
-          <line>85</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/com/google/inject/extensions/guice-servlet/3.0/guice-servlet-3.0-sources.jar!/com/google/inject/servlet/GuiceFilter.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/BasicHttpAuthenticationFilter.class</url>
-          <line>86</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/BasicHttpAuthenticationFilter.class</url>
-          <line>98</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/BasicHttpAuthenticationFilter.class</url>
-          <line>129</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/BasicHttpAuthenticationFilter.class</url>
-          <line>120</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/BasicHttpAuthenticationFilter.class</url>
-          <line>81</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/BasicHttpAuthenticationFilter.class</url>
-          <line>76</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/BasicHttpAuthenticationFilter.class</url>
-          <line>72</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/BasicHttpAuthenticationFilter.class</url>
-          <line>67</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/BasicHttpAuthenticationFilter.class</url>
-          <line>54</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/AuthenticationFilter.class</url>
-          <line>29</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/PassThruAuthenticationFilter.class</url>
           <line>15</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/AuthenticatingFilter.class</url>
-          <line>69</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/BasicHttpAuthenticationFilter.class</url>
-          <line>27</line>
-          <option name="timeStamp" value="24" />
+          <url>file://$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceModuleRegistrar.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/RestServiceBindModule.java</url>
-          <line>137</line>
-          <option name="timeStamp" value="26" />
+          <line>44</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.2.3/shiro-web-1.2.3.jar!/org/apache/shiro/web/filter/authc/BasicHttpAuthenticationFilter.class</url>
-          <line>26</line>
-          <properties class="org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter" method="&lt;init&gt;">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="23" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/RestServiceBindModule.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

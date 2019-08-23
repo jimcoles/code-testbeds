@@ -2,17 +2,15 @@ package org.jkcsoft.jasmin.services.user;
 
 import com.google.inject.Inject;
 import com.google.inject.servlet.RequestScoped;
-import org.jkcsoft.jasmin.platform.ws.ServiceRegsitry;
+import org.jkcsoft.jasmin.platform.ws.MethodInfo;
+import org.jkcsoft.jasmin.platform.ws.ServiceRegistry;
 import org.jkcsoft.jasmin.platform.ws.rs.AbstractWebService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
@@ -20,7 +18,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Map;
 
 /**
  * Sample Secured RESTful Web Service<br>
@@ -34,17 +31,24 @@ import java.util.Map;
 @Path("/user")
 public class UserService extends AbstractWebService {
 
-    public static final String PARAM_USERNAME = "userName";
     private static Logger log = LoggerFactory.getLogger(UserService.class);
+
+    //
+
+    public static final String PARAM_USERNAME = "userName";
     public static final String PATH_USER_DB = "/userdb";
     public static final String ENDPOINT_LOCALHOST = "http://localhost:8080";
-
-    private UriBuilder userDbUri;
+//    private UriBuilder userDbUri;
+    private MethodInfo userDbPut;
+    private MethodInfo userDbPost;
+    private MethodInfo userDbGet;
 
     @Inject
-    public UserService(ServiceRegsitry serviceRegsitry, HttpServletRequest request, HttpServletResponse response) {
-        super(serviceRegsitry, request, response);
-        userDbUri = serviceRegsitry.getServiceUri("userdb");
+    public UserService(ServiceRegistry serviceRegistry, HttpServletRequest request, HttpServletResponse response) {
+        super(serviceRegistry, request, response);
+        userDbPut = serviceRegistry.getMethodInfo("jasmin", "userdb", HttpMethod.PUT);
+        userDbPost = serviceRegistry.getMethodInfo("jasmin", "userdb", HttpMethod.POST);
+        userDbGet = serviceRegistry.getMethodInfo("jasmin", "userdb", HttpMethod.GET);
     }
 
     @GET
@@ -57,7 +61,7 @@ public class UserService extends AbstractWebService {
         // call to UserMondgoDb
         HttpClient client = getHttpClient();
 
-        HttpRequest request = buildUserDbRequest(userName);
+        HttpRequest request = buildUserDbGetRequest(userName);
 
         client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
               .thenApply(HttpResponse::body)
@@ -70,11 +74,9 @@ public class UserService extends AbstractWebService {
         return Response.ok().build();
     }
 
-    private HttpRequest buildUserDbRequest(String userName) {
-        return HttpRequest.newBuilder()
+    private HttpRequest buildUserDbGetRequest(String userName) {
+        return getBaseRequestBuilder()
                           .uri(getUserDbUri(userName))
-//                                         .timeout(Duration.ofMillis(10000L))
-                          .header("Content-Type", "application/json")
                           .GET()
                           .build();
     }
@@ -87,17 +89,6 @@ public class UserService extends AbstractWebService {
 
     private UriBuilder getUserDbUriBuilder() {
         return getEndpointUriBuilder().path(PATH_USER_DB);
-    }
-
-    private UriBuilder getEndpointUriBuilder() {
-        return UriBuilder.fromUri(ENDPOINT_LOCALHOST);
-    }
-
-    private HttpClient getHttpClient() {
-        return HttpClient.newBuilder()
-                         .version(HttpClient.Version.HTTP_2)
-//                                      .authenticator(Authenticator.requestPasswordAuthentication())
-                         .build();
     }
 
     @GET
