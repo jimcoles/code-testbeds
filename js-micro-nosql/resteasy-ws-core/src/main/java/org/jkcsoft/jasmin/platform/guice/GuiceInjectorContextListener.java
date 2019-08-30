@@ -21,11 +21,12 @@ public class GuiceInjectorContextListener extends GuiceServletContextListener {
     private static final Logger log = LoggerFactory.getLogger(GuiceInjectorContextListener.class);
 
 //    private Injector injector;
-//    private GuiceModuleRegistrar seedModule;
+    private GuiceModuleRegistrar seedModule;
 
     @Override
     protected Injector getInjector() {
-        return Guice.createInjector(new GuiceModuleRegistrar());
+        seedModule = new GuiceModuleRegistrar();
+        return Guice.createInjector(seedModule);
     }
 
     @Override
@@ -34,5 +35,11 @@ public class GuiceInjectorContextListener extends GuiceServletContextListener {
         log.info("servlet context initialized.");
 //        seedModule.configureServlets();
 //        seedModule.installRestServices(injector);
+    }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent servletContextEvent) {
+        super.contextDestroyed(servletContextEvent);
+        seedModule.destroy();
     }
 }

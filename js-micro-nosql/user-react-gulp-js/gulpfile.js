@@ -3,6 +3,10 @@ var gulp = require('gulp');
 var source = require('vinyl-source-stream');
 var reactify = require('reactify');
 
+gulp.task('default', function () {
+    gulp.start(['build']);
+});
+
 gulp.task('browserify', function () {
     return browserify('./app/index.jsx', {
         debug: true,

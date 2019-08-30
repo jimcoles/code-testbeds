@@ -23,12 +23,13 @@
         <version.slf4j-log4j>1.6.4</version.slf4j-log4j>
         <version.junit>4.10</version.junit>
         <version.servlet>3.0.1</version.servlet>
-        <version.resteasy>3.0.9.Final</version.resteasy>
+        <version.resteasy>3.7.0.Final</version.resteasy>
         <version.guice>3.0</version.guice>
         <version.shiro>1.2.3</version.shiro>
         <jackson.version>2.10.0.pr1</jackson.version>
         <resteasy-jackson-provider.version>2.2.1.GA</resteasy-jackson-provider.version>
         <mongo-java-driver.version>3.10.2</mongo-java-driver.version>
+        <javaee-api.version>7.0</javaee-api.version>
     </properties>
 
     <dependencyManagement>
@@ -47,6 +48,14 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
                 <version>${version.slf4j-log4j}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>${javaee-api.version}</version>
+                <scope>provided</scope>
             </dependency>
 
             <!-- App frameworks -->
@@ -143,7 +152,7 @@
         <module>user-shared-data</module>
 
         <module>user-webapp</module>
-        <module>user-react-js</module>
+        <module>user-react-simple-js</module>
         <module>user-raw-ms</module>
         <module>user-resteasy-ms</module>
         <module>user-db-mongo-ms</module>
@@ -156,6 +165,9 @@
 
         <module>resteasy-sample-ws</module>
         <module>test-harness</module>
+        <module>user-angular-js</module>
+        <module>user-jboss-ms</module>
+        <module>user-react-simple-js</module>
 
     </modules>
 

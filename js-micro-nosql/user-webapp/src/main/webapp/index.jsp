@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+    <script src="js/root.js"></script>
 </body>
 </html>

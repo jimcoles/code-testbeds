@@ -40,7 +40,7 @@
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
 
         <!-- deploying for localhost development -->
-        <version.resteasy>3.0.9.Final</version.resteasy>
+        <version.resteasy>3.7.0.Final</version.resteasy>
         <!-- SAL Core jar version -->
         <version.junit>4.10</version.junit>
         <version.guice>3.0</version.guice>

@@ -57,14 +57,16 @@ public class GuiceModuleRegistrar extends ServletModule {
 
         loadBootstrapProperties();
         // Initialize Apache Shiro if present
-        install(new BootstrapShiroModule(getServletContext()));
+        BootstrapShiroModule shiroModule = new BootstrapShiroModule(getServletContext());
+        install(shiroModule);
         //This allows Shiro AOP Annotations http://shiro.apache.org/java-authorization-guide.html
         install(new ShiroAnnotationsModule());
 
         // Binds the REST services -- the real reason for doing all of this!
         //        requestInjection(restServiceBindModule);
 
-        install(new RestServiceBindModule(new BootConfig(bootstrapProperties)));
+        RestServiceBindModule rsBindModule = new RestServiceBindModule(new BootConfig(bootstrapProperties));
+        install(rsBindModule);
         //
         filter("/*").through(GuiceShiroFilter.class);
         filter("/*").through(ResteasyFilterDispatcher.class);
@@ -99,4 +101,7 @@ public class GuiceModuleRegistrar extends ServletModule {
         }
     }
 
+    public void destroy() {
+
+    }
 }

@@ -2,39 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91051313-cb24-4702-a570-e2323b627794" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/AppInfoProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/AppStatic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/AppHomeProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/BootConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/model/AppHome.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/utils/AnnoUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/Endpoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/MethodInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ParamInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/RsServiceInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistryProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-app-war/src/main/java/org/jkcsoft/jasmin/app/JasminAppInfoProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-resteasy-ms/src/test/java/org/jkcsoft/jasmin/test/userservice/AnnoValueTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-shared-data/src/main/java/org/jkcsoft/jasmin/JasminApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-shared-data/src/main/java/org/jkcsoft/jasmin/api/Services.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-angular-js/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-angular-js/src/main/web/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-angular-js/user-angular-js.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-jboss-ms/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-jboss-ms/src/main/java/org/jkcsoft/jasmin/services/userjboss/JaxRsActivator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-jboss-ms/src/main/java/org/jkcsoft/jasmin/services/userjboss/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-jboss-ms/src/main/java/org/jkcsoft/jasmin/services/userjboss/UserJbService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-jboss-ms/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-jboss-ms/src/main/resources/insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-jboss-ms/user-jboss-ms.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-react-gulp-js/user-react-gulp-js.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-react-simple-js/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-webapp/src/main/webapp/js/root.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-webapp/src/main/webapp/js/user-page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/model/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/AppHome.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/GenericBootstrapConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/model/GenericBootstrapConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/BootstrapPropertiesModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/BootstrapPropertiesModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resteasy-sample-ws/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-sample-ws/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceInjectorContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceInjectorContextListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceModuleRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceModuleRegistrar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/RestServiceBindModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/RestServiceBindModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegsitry.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/rs/AbstractWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/rs/AbstractWebService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-app-war/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-app-war/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-db-mongo-ms/src/main/java/org/jkcsoft/jasmin/services/userdb/UserMongoDbService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-db-mongo-ms/src/main/java/org/jkcsoft/jasmin/services/userdb/UserMongoDbService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-resteasy-ms/src/main/java/org/jkcsoft/jasmin/services/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-resteasy-ms/src/main/java/org/jkcsoft/jasmin/services/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-shared-data/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-shared-data/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-shared-data/src/main/java/org/jkcsoft/jasmin/lexicon/Services.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-js/app/components/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/app/components/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-js/app/components/Greet.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/app/components/Greet.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-js/app/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/app/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-js/assets/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/assets/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-js/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-js/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-js/target/antrun/build-main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-js/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-js/target/user-react-js-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-webapp/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-webapp/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-webapp/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/user-webapp/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,14 +86,17 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1P3kDJgbZLtVFnlFkZxaBcoApaY" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551216292736" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user-resteasy-ms/src/main" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/user-react-gulp-js/src/main/webapp/WEB-INF" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
@@ -95,19 +104,15 @@
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="org.jkcsoft.jasmin.platform.ws" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/user-resteasy-ms/src/main" />
-      <recent name="$PROJECT_DIR$/test-harness/src/main/resources" />
-      <recent name="$PROJECT_DIR$/resteasy-ws-core/src/main/resources" />
-      <recent name="$PROJECT_DIR$/user-app-war/src/main" />
-      <recent name="$PROJECT_DIR$/user-app-war/src/main/resources" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/user-react-gulp-js" />
+      <recent name="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript" />
+      <recent name="$PROJECT_DIR$/user-react-gulp-js/src/main" />
+      <recent name="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="org.jkcsoft.jasmin.platform.utils.AnnoUtil" />
       <recent name="org.jkcsoft.jasmin.platform.model.GenericBootstrapConstants" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.jkcsoft.jasmin.resample" />
@@ -118,6 +123,13 @@
       <recent name="org.jkcsoft.jasmin.services.userdb" />
       <recent name="org.jkcsoft.jasmin.services.user" />
       <recent name="org.jkcsoft.jasmin.guice" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/user-react-gulp-js/src/main/webapp/WEB-INF" />
+      <recent name="$PROJECT_DIR$/user-webapp/src/main/webapp/js" />
+      <recent name="$PROJECT_DIR$/user-resteasy-ms/src/main" />
+      <recent name="$PROJECT_DIR$/test-harness/src/main/resources" />
+      <recent name="$PROJECT_DIR$/resteasy-ws-core/src/main/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -132,7 +144,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AnnoValueTest">
+  <component name="RunManager" selected="Remote.Remote localhost 8000">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -266,8 +278,8 @@
       <item itemvalue="JUnit.UserTests" />
       <item itemvalue="JUnit.TestReAnoProc" />
       <item itemvalue="JUnit.UriBuilderTest" />
-      <item itemvalue="Remote.Remote localhost 8000" />
       <item itemvalue="JUnit.AnnoValueTest" />
+      <item itemvalue="Remote.Remote localhost 8000" />
     </list>
     <recent_temporary>
       <list>
@@ -324,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565391163226</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Bootstrapping working ok. Using guice Providers to access injectable&#10;objects from outside of the guice injection graph.">
+      <created>1566602143715</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1566602143715</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -338,6 +357,7 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.jsp" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.sql" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -356,7 +376,8 @@
     <MESSAGE value="Good progress on RestEasy Jackson JSON simple user service. &#10;Returning valid JSON from Java POJO." />
     <MESSAGE value="Checkin prior to some renaming of modules." />
     <MESSAGE value="Been a while. Moved to Java 11/12. Added an HTTP client to user ws so it &#10;can call userdb via ws HTTP call. Still fooling with bootstrap init&#10;logic." />
-    <option name="LAST_COMMIT_MESSAGE" value="Been a while. Moved to Java 11/12. Added an HTTP client to user ws so it &#10;can call userdb via ws HTTP call. Still fooling with bootstrap init&#10;logic." />
+    <MESSAGE value="Bootstrapping working ok. Using guice Providers to access injectable&#10;objects from outside of the guice injection graph." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bootstrapping working ok. Using guice Providers to access injectable&#10;objects from outside of the guice injection graph." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -383,18 +404,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceModuleRegistrar.java</url>
-          <line>91</line>
+          <line>93</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/RestServiceBindModule.java</url>
-          <line>44</line>
+          <line>45</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/RestServiceBindModule.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="53" />
+          <url>jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jaxrs/3.7.0.Final/resteasy-jaxrs-3.7.0.Final-sources.jar!/org/jboss/resteasy/util/PickConstructor.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/ResteasyFilterDispatcher.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jaxrs/3.7.0.Final/resteasy-jaxrs-3.7.0.Final-sources.jar!/org/jboss/resteasy/spi/ResteasyDeployment.java</url>
+          <line>968</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jaxrs/3.7.0.Final/resteasy-jaxrs-3.7.0.Final-sources.jar!/org/jboss/resteasy/plugins/server/servlet/ConfigurationBootstrap.java</url>
+          <line>134</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jaxrs/3.7.0.Final/resteasy-jaxrs-3.7.0.Final-sources.jar!/org/jboss/resteasy/spi/ResteasyDeployment.java</url>
+          <line>325</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jaxrs/3.7.0.Final/resteasy-jaxrs-3.7.0.Final-sources.jar!/org/jboss/resteasy/plugins/server/servlet/ConfigurationBootstrap.java</url>
+          <line>130</line>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

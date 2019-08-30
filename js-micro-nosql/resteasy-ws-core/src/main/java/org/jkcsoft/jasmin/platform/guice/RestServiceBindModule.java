@@ -36,6 +36,7 @@ public class RestServiceBindModule extends AbstractModule {
         bindReServicesByDirectList();
     }
 
+
     private void bindAppFrameworkObjects() {
         bind(ServiceRegistry.class).to(ServiceRegistryImpl.class);
     }
