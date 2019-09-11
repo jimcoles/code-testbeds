@@ -32,6 +32,43 @@
         <javaee-api.version>7.0</javaee-api.version>
     </properties>
 
+    <build>
+
+        <!--
+        Specifies standard plugins and their standard config settings for use by
+         any projects that use this pom
+          -->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.3</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.github.eirslett</groupId>
+                    <artifactId>frontend-maven-plugin</artifactId>
+                    <version>1.8.0</version>
+                    <configuration>
+                        <nodeVersion>v4.6.0</nodeVersion>
+
+                        <!-- optional: with node version greater than 4.0.0 will use npm provided by node distribution -->
+                        <npmVersion>2.15.9</npmVersion>
+
+                        <!-- optional: where to download node and npm from. Defaults to https://nodejs.org/dist/ -->
+                        <!--                    <downloadRoot>http://myproxy.example.org/nodejs/</downloadRoot>-->
+                        <!-- optional: where to download node from. Defaults to https://nodejs.org/dist/ -->
+                        <!--                    <nodeDownloadRoot>http://myproxy.example.org/nodejs/</nodeDownloadRoot>-->
+                        <!-- optional: where to download npm from. Defaults to https://registry.npmjs.org/npm/-/ -->
+                        <!--                    <npmDownloadRoot>https://myproxy.example.org/npm/</npmDownloadRoot>-->
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+    </build>
+
     <dependencyManagement>
         <dependencies>
 
@@ -43,7 +80,6 @@
                 <version>${version.servlet}</version>
                 <scope>provided</scope>
             </dependency>
-
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>

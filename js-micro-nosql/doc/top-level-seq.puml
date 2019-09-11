@@ -1,0 +1,67 @@
+@startuml
+hide footbox
+skinparam EntityJustify Center
+
+participant Browser
+participant JBoss
+participant "UI\nDispatch\n'/ui/*'" as uiDispatch
+box "HTML Filters"
+    participant "Request\nHandler\n'/ui/pg1'" as htmlHandler
+    participant "JSP \n Template" as jspTemplate
+end box
+participant "WS\nDispatcher\n'/ws/*'" as wsDispatch
+participant "WS\nHandler\n'/ws/svc1'" as wsHandler
+
+database "DB"
+
+' -----
+
+== Initialize Page ==
+
+note right Browser
+ Request triggered User
+ hyperlink navigation
+end note
+Browser -> JBoss: [JSON]/Http
+JBoss -> uiDispatch:
+
+uiDispatch -> htmlHandler: [JSON]/Http
+htmlHandler -> wsDispatch: JSON/Http
+
+wsDispatch -> wsHandler
+wsHandler -> DB
+DB --> wsHandler
+wsHandler --> wsDispatch: JSON/Http
+wsDispatch --> htmlHandler
+note over htmlHandler
+ The request handler adds required JSON
+ as needed by the JSP template prior to
+ returning control to the filter handler
+end note
+htmlHandler --> uiDispatch:
+uiDispatch -> jspTemplate
+note over jspTemplate
+ JSP template uses Http request attrs
+ set by the HTML request handler to
+ load response HTML with Javascript
+end note
+jspTemplate --> Browser: HTML+JSON/Http
+
+== Javascript Http Event Polling from Page ==
+
+note right Browser
+ Request triggered by JS event,
+ not User hyperlink navigation
+end note
+Browser -> JBoss: JSON/Http
+JBoss -> wsDispatch
+wsDispatch -> wsHandler
+wsHandler -> DB
+DB --> wsHandler
+wsHandler --> wsDispatch
+wsDispatch --> Browser: JSON/Http
+note right Browser
+ Page re-renders with
+ new JSON data
+end note
+@enduml

@@ -6,6 +6,9 @@
 </head>
 <body>
 <div id="root-div"></div>
+<script>
+var page = <%=request.getAttribute("pageJson") %>
+</script>
 <script src="bundle.js"></script>
 </body>
 </html>

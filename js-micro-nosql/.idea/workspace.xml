@@ -2,45 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91051313-cb24-4702-a570-e2323b627794" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-angular-js/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-angular-js/src/main/web/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-angular-js/user-angular-js.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-jboss-ms/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-jboss-ms/src/main/java/org/jkcsoft/jasmin/services/userjboss/JaxRsActivator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-jboss-ms/src/main/java/org/jkcsoft/jasmin/services/userjboss/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-jboss-ms/src/main/java/org/jkcsoft/jasmin/services/userjboss/UserJbService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-jboss-ms/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-jboss-ms/src/main/resources/insert.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-jboss-ms/user-jboss-ms.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-react-gulp-js/user-react-gulp-js.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-react-simple-js/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-webapp/src/main/webapp/js/root.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-webapp/src/main/webapp/js/user-page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/top-level-seq.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/app/components/CreateUser.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/webapp/stub.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-react-simple-js/src/main/webapp/bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-react-simple-js/src/main/webapp/home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-react-simple-js/src/main/webapp/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-react-simple-js/src/main/webapp/sample-square-page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-sample-ws/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-sample-ws/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceInjectorContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceInjectorContextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceModuleRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceModuleRegistrar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/RestServiceBindModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/RestServiceBindModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-js/app/components/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/app/components/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-js/app/components/Greet.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/app/components/Greet.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-js/app/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/app/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-js/assets/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/assets/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-js/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/gulpfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-js/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-js/target/antrun/build-main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-js/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-js/target/user-react-js-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-webapp/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-webapp/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-webapp/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/user-webapp/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-jboss-ms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-jboss-ms/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-jboss-ms/src/main/java/org/jkcsoft/jasmin/services/userjboss/JaxRsActivator.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-jboss-ms/src/main/java/org/jkcsoft/jasmin/services/userjboss/JaxRsActivator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-jboss-ms/src/main/java/org/jkcsoft/jasmin/services/userjboss/UserJbService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-jboss-ms/src/main/java/org/jkcsoft/jasmin/services/userjboss/UserJbService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-gulp-js/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-gulp-js/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/app/components/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/app/components/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/app/components/Greet.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/app/components/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/app/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/app/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/assets/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript/assets/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-react-gulp-js/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-react-gulp-js/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,6 +44,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="UML Sequence" />
       </list>
     </option>
   </component>
@@ -91,10 +74,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultPlantUmlFileTemplate" value="UML Sequence" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="add_unversioned_files" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551216292736" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user-react-gulp-js/src/main/webapp/WEB-INF" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/user-react-simple-js/src/main/webapp" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -105,6 +90,7 @@
       <recent name="org.jkcsoft.jasmin.platform.ws" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/user-react-gulp-js" />
       <recent name="$PROJECT_DIR$/user-react-gulp-js/src/main/javascript" />
       <recent name="$PROJECT_DIR$/user-react-gulp-js/src/main" />
@@ -117,19 +103,19 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.jkcsoft.jasmin.resample" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/user-react-simple-js/src/main/webapp" />
+      <recent name="$PROJECT_DIR$/user-react-gulp-js/src/main/webapp/WEB-INF" />
+      <recent name="$PROJECT_DIR$/user-webapp/src/main/webapp/js" />
+      <recent name="$PROJECT_DIR$/user-resteasy-ms/src/main" />
+      <recent name="$PROJECT_DIR$/test-harness/src/main/resources" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="org.jkcsoft.jasmin.platform.ws" />
       <recent name="org.jkcsoft.jasmin.services.userdb" />
       <recent name="org.jkcsoft.jasmin.services.user" />
       <recent name="org.jkcsoft.jasmin.guice" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/user-react-gulp-js/src/main/webapp/WEB-INF" />
-      <recent name="$PROJECT_DIR$/user-webapp/src/main/webapp/js" />
-      <recent name="$PROJECT_DIR$/user-resteasy-ms/src/main" />
-      <recent name="$PROJECT_DIR$/test-harness/src/main/resources" />
-      <recent name="$PROJECT_DIR$/resteasy-ws-core/src/main/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -343,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566602143715</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added some pure JBoss RS WS (no Guice). A little more work on the Javascript side.">
+      <created>1567206953431</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1567206953431</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -377,7 +370,8 @@
     <MESSAGE value="Checkin prior to some renaming of modules." />
     <MESSAGE value="Been a while. Moved to Java 11/12. Added an HTTP client to user ws so it &#10;can call userdb via ws HTTP call. Still fooling with bootstrap init&#10;logic." />
     <MESSAGE value="Bootstrapping working ok. Using guice Providers to access injectable&#10;objects from outside of the guice injection graph." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bootstrapping working ok. Using guice Providers to access injectable&#10;objects from outside of the guice injection graph." />
+    <MESSAGE value="Added some pure JBoss RS WS (no Guice). A little more work on the Javascript side." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some pure JBoss RS WS (no Guice). A little more work on the Javascript side." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

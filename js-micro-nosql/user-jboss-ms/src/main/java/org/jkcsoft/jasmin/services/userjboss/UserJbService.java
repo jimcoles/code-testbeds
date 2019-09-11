@@ -15,7 +15,7 @@ import java.util.List;
  * @author Jim Coles
  */
 // @Stateless
-@Path("/simple")
+@Path("/user")
 public class UserJbService {
 
     @PersistenceContext
@@ -24,19 +24,20 @@ public class UserJbService {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Person> savePerson(String json) {
-        JsonReader reader = Json.createReader(new StringReader(json));
-        JsonObject obj = reader.readObject();
-        String name = obj.getString("name");
-        String surname = obj.getString("surname");
-
-        em.persist(new Person(name, surname));
-
+    public List<Person> savePerson(Person jsonPerson) {
+//        JsonReader reader = Json.createReader(new StringReader(json));
+//        JsonObject obj = reader.readObject();
+//        String name = obj.getString("name");
+//        String surname = obj.getString("surname");
+//
+//        em.persist(new Person(name, surname));
+        em.persist(jsonPerson);
         return getPersonList();
     }
 
-    @GET
-    @Path("/json")
+    @POST
+    @Path("/users")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public List<Person> getPersonList() {
         Query query = em.createQuery("FROM Person");
@@ -45,7 +46,7 @@ public class UserJbService {
     }
 
     @GET
-    @Path("/json/{name}")
+//    @Path("/json/{name}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Person> getPersonByName(@PathParam("name") String name) {
         Query query = em.createQuery("FROM Person where name = :name");

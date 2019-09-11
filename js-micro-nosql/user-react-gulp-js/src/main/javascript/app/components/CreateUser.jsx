@@ -1,12 +1,13 @@
 var React = require('react');
 
-var Greet = React.createClass({
+var CreateUser = React.createClass({
     getInitialState: function () {
         return {id: 0, content: 'Now Loading...'};
     },
     loadFromServer: function () {
         var request = new XMLHttpRequest();
-        request.open('GET', 'http://rest-service.guides.spring.io/greeting', true);
+//        request.open('GET', 'http://rest-service.guides.spring.io/greeting', true);
+        request.open('GET', 'http://localhost:8080/jasmin/user?userName=jcoles', true);
         request.onreadystatechange = function () {
             if (request.readyState != 4) return;
             if (request.status != 200) {
@@ -25,6 +26,7 @@ var Greet = React.createClass({
     },
     render: function () {
         return (
+
             <div>
                 <p>{this.state.id} {this.state.content}</p>
                 <button onClick={this.onClick}>Reload</button>
