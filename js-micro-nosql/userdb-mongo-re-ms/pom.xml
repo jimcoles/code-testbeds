@@ -17,7 +17,7 @@
 <!--        </repository>-->
     </repositories>
 
-    <artifactId>user-db-mongo-ms</artifactId>
+    <artifactId>userdb-mongo-re-ms</artifactId>
 
     <dependencies>
 

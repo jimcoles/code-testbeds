@@ -8,7 +8,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>user-react-gulp-js</artifactId>
+    <artifactId>user-react-gulp-ui-war</artifactId>
     <!--    <packaging>jar</packaging>-->
     <packaging>war</packaging>
 

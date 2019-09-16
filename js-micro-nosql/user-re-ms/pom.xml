@@ -11,7 +11,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>user-resteasy-ms</artifactId>
+    <artifactId>user-re-ms</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>

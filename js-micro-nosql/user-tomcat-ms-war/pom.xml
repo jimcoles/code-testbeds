@@ -9,26 +9,27 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>user-jboss-ms</artifactId>
-    <description>Something close to a pure JBoss web service as opposed to RestEasy + Guice + Tomcat</description>
-    <packaging>jar</packaging>
+    <artifactId>user-tomcat-ms-war</artifactId>
+    <description>Aggregates service core and endpoint service impls into a WAR</description>
+    <packaging>war</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
+            <groupId>org.jkcsoft</groupId>
+            <artifactId>resteasy-ws-core</artifactId>
         </dependency>
-
         <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jaxrs</artifactId>
+            <groupId>org.jkcsoft</groupId>
+            <artifactId>user-re-ms</artifactId>
         </dependency>
-
         <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>javax.persistence-api</artifactId>
-            <version>2.2</version>
+            <groupId>org.jkcsoft</groupId>
+            <artifactId>userdb-mongo-re-ms</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>jasmin</finalName>
+    </build>
 
 </project>

@@ -165,12 +165,17 @@
             </dependency>
             <dependency>
                 <groupId>org.jkcsoft</groupId>
-                <artifactId>user-resteasy-ms</artifactId>
+                <artifactId>user-re-ms</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>org.jkcsoft</groupId>
-                <artifactId>user-db-mongo-ms</artifactId>
+                <artifactId>userdb-mongo-re-ms</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jkcsoft</groupId>
+                <artifactId>user-react-gulp-ui-war</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
 
@@ -190,20 +195,20 @@
         <module>user-webapp</module>
         <module>user-react-simple-js</module>
         <module>user-raw-ms</module>
-        <module>user-resteasy-ms</module>
-        <module>user-db-mongo-ms</module>
+        <module>user-re-ms</module>
+        <module>userdb-mongo-re-ms</module>
+        <module>test-harness</module>
+        <module>user-angular-js</module>
+        <module>user-javax-ms</module>
 
-        <!-- Aseemblies in various forms -->
-        <module>user-app-war</module>
+        <!-- Assemblies in various forms -->
+        <module>user-tomcat-ms-war</module>
+        <module>user-react-gulp-ui-war</module>
         <!--        <module>user-ms-docker</module>-->
 
         <!-- Sample modules -->
 
         <module>resteasy-sample-ws</module>
-        <module>test-harness</module>
-        <module>user-angular-js</module>
-        <module>user-jboss-ms</module>
-        <module>user-react-simple-js</module>
 
     </modules>
 

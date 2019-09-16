@@ -1,0 +1,187 @@
+@startuml
+
+
+package Core {
+
+    class IdentifiableThing {
+        UUID : uuid
+    }
+
+    class PhysicalObject {
+    }
+
+    PhysicalObject -left-|> IdentifiableThing
+
+    '===================
+    class LivingThing {
+    }
+
+    LivingThing -left-|> PhysicalObject
+
+}
+
+package CoreBusiness {
+
+    '===================
+    class Person <<LivingThing>> <<Contact>> {
+    }
+    Person *-- "0,*" EmailAddress
+
+    class CustomerInteraction {
+    }
+    note top
+        All interactions including
+        web page views, clicks,
+        phone calls, etc.
+        Association to a CustomerAccount
+        might be loosely defined.
+    end note
+    CustomerInteraction "1,*" -- "0,1" CustomerAccount
+
+    '===================
+    class Organization <<IdentifiableThing>> <<Contact>> {
+    }
+
+    class Company {
+    }
+    Organization -- "1,*" Location
+
+    class Location {
+        country
+        city
+        street
+    }
+
+    Company -up-|> Organization
+
+    '===================
+    abstract Contact
+
+    class EmailAddress
+
+}
+
+package ProductCatalog {
+
+    '===================
+    class Product <<AbstractThing>> {
+        UUID : modelNumber
+    }
+
+    Product "left *" -- "right *" Product
+
+    (Product, Product) .. ConfigRule
+
+    class ConfigRule {
+        Kind: ruleKind
+    }
+
+    note top
+        E.g., dependencies,
+        compatibility
+    end note
+    class ProductVersion {
+        int major
+        int minor
+        int release
+        String releaseTag
+        boolean isRelease
+    }
+
+    Product "core" o-- "0,*" ProductVersion
+
+}
+
+package Engineering {
+
+    class ProductSpecification
+    ProductSpecification -- ProductVersion
+
+}
+
+package ProductDelivery {
+
+    class ProductInstance {
+        UUID: serialNumber
+    }
+
+    ProductInstance --> "1" ProductVersion
+    ProductInstance --> "1" SoftwareUser
+
+}
+
+package SoftwareEngineering {
+
+    class SourceCode
+    SourceCode --|> ProductSpecification
+
+}
+
+package SoftwareProducts {
+
+    class SoftwareProduct {
+    }
+    SoftwareProduct -up-|> Product
+    SoftwareUser o-- SoftwareProduct
+
+    class Application
+
+    Application -up-|> SoftwareProduct
+
+    class Service
+
+    Service -up-|> SoftwareProduct
+
+    Person *-- SoftwareUser
+
+
+    '===================
+    class SoftwareUser <<Accessor>> {
+        String : userName
+        byte[] : password
+    }
+
+}
+
+package DigitalSecurity {
+    interface Accessor {
+    }
+
+    class AuthenticationCertificate {
+    }
+
+    Accessor *-- AuthenticationCertificate
+
+    class AccessControlRule {
+    }
+}
+
+package Financial {
+
+    class PurchaseOrder
+    PurchaseOrder o-- "1,*" ExternalPaymentAccount
+
+    class PurchaseItem {
+        int : quantity
+    }
+
+    PurchaseItem o-- Product
+
+    PurchaseOrder -- PurchaseItem
+    class CustomerAccount {
+        EmailAddress : primaryEmailAddr
+    }
+    CustomerAccount "1" -- "0,1" ExternalPaymentAccount
+
+    class ExternalPaymentAccount {
+
+    }
+
+    class CCPaymentAccount {
+
+    }
+    CCPaymentAccount -up-|> ExternalPaymentAccount
+
+}
+
+@enduml

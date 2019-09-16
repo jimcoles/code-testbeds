@@ -7,21 +7,22 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="user-react-simple-js" />
-        <module name="user-resteasy-ms" />
-        <module name="user-app-war" />
-        <module name="user-jboss-ms" />
+        <module name="userdb-mongo-re-ms" />
+        <module name="user-re-ms" />
+        <module name="user-javax-ms" />
+        <module name="user-shared-data" />
         <module name="user-angular-js" />
-        <module name="user-db-mongo-ms" />
+        <module name="user-react-gulp-ui-war" />
         <module name="user-raw-ms" />
         <module name="resteasy-sample-ws" />
-        <module name="user-react-gulp-js" />
-        <module name="user-webapp" />
+        <module name="user-tomcat-ms-war" />
         <module name="test-harness" />
-        <module name="user-shared-data" />
+        <module name="user-webapp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="user-ms-docker" target="1.8" />
+      <module name="user-react-gulp-js" target="12" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
