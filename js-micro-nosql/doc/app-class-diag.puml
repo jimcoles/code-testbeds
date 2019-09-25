@@ -1,74 +1,155 @@
 @startuml
 
-
 package Core {
 
-    class IdentifiableThing {
+    class Identity #lightgreen {
         UUID : uuid
+        URN : commonFQName
+        (opt) AuthenticationCertificate : cert
     }
 
-    class PhysicalObject {
+    Identity --> AuthenticationCertificate
+
+    note top
+        Identity Management for
+        all kinds of things including
+        People, Businesses, and
+        Products
+    end note
+
+    class Tag {
+        String : name
+        String : value
     }
 
-    PhysicalObject -left-|> IdentifiableThing
+    note top
+        Most entities will
+        allow any number of
+        tags and URL links.
+    end note
 
-    '===================
-    class LivingThing {
+    class UrlLink {
+        String : name
+        URL : url
     }
-
-    LivingThing -left-|> PhysicalObject
 
 }
 
 package CoreBusiness {
 
-    '===================
-    class Person <<LivingThing>> <<Contact>> {
+    class Person #lightgreen {
+        String : firstName
+        String : familyName
+        boolean : isCustomer()
+        boolean : isPartner()
+        boolean : isAutheticated()
+        boolean : isWebUser()
     }
-    Person *-- "0,*" EmailAddress
 
-    class CustomerInteraction {
+    class Profile #lightgreen {
+        String : description
+        File : picture
     }
-    note top
+
+    Person *-- Profile
+    Person *-- Resume
+
+    class Resume {
+
+    }
+
+    class CustomerInteraction #lightgreen {
+        Timestamp : timeStamp
+        InteractionKind : kind
+    }
+
+    note right
         All interactions including
         web page views, clicks,
         phone calls, etc.
-        Association to a CustomerAccount
+        Association to a Customer
         might be loosely defined.
     end note
-    CustomerInteraction "1,*" -- "0,1" CustomerAccount
 
-    '===================
-    class Organization <<IdentifiableThing>> <<Contact>> {
+    class WebInteractionInfo {
+        IPAddress : ipAddress
+        URL: fromUrl
+        URL: targetUrl
     }
+    CustomerInteraction *-- "0,1" WebInteractionInfo
 
-    class Company {
+    CustomerInteraction "1,*" o-- "0,1" Person
+
+    class P2BRelationship {
+        P2BRKind : kind
     }
-    Organization -- "1,*" Location
+    class P2BRKind {
+        CUSTOMER, EMPLOYEE, HR,
+        USER_GROUP
+    }
+    P2BRelationship o- "kind" P2BRKind
+
+    class B2BRelationship {
+        B2BRKind : kind
+    }
+    class B2BRKind {
+        PROVIDER,
+        CONSUMER,
+        COMPETITOR
+    }
+    B2BRelationship o- "kind" B2BRKind
+
+    class P2PRelationship {
+        P2PRKind : kind
+    }
+    class P2PRKind {
+        FRIEND, COWORKER, SELF
+    }
+    P2PRelationship o- "kind" P2PRKind
+
+    class Business <<Contact>> #lightgreen {
+        boolean : isBusiness
+        boolean : isPartner
+        String : name
+        String : stockSymbol
+        {list} EmailAddress : emailAddr
+        {list} PhoneNumber : phoneNumber
+    }
+    Business "from" -- "to" Business
+    (Business, Business) .. B2BRelationship
+
+    (Person, Business) .. P2BRelationship
+
+    (Person, Person) .. P2PRelationship
+
+    Business -- "1,*" Location
 
     class Location {
         country
         city
         street
+        GPS : gps
     }
 
-    Company -up-|> Organization
-
-    '===================
-    abstract Contact
-
-    class EmailAddress
+    abstract Contact {
+    }
 
 }
 
+' Core +-- CoreBusiness
+
 package ProductCatalog {
 
-    '===================
-    class Product <<AbstractThing>> {
+    class Product <<AbstractThing>> #lightgreen {
         UUID : modelNumber
+        ProductKind : productKind
     }
 
+    ProductVersion o-- "retailer" Business
+    Product o-- "manufacturer" Business
+
     Product "left *" -- "right *" Product
+    Product o- "kind" ProductKind
 
     (Product, Product) .. ConfigRule
 
@@ -77,31 +158,53 @@ package ProductCatalog {
     }
 
     note top
-        E.g., dependencies,
-        compatibility
+        E.g., dependency,
+        compatibility,
+        composition,
+        aggregation
     end note
-    class ProductVersion {
+
+    class ProductVersion #lightgreen {
         int major
         int minor
         int release
         String releaseTag
-        boolean isRelease
+        ReleaseState : releaseState
+
+        boolean : isRelease()
     }
 
-    Product "core" o-- "0,*" ProductVersion
+    Product o-- "0,*" ProductVersion
+
+    class ProductKind #lightgreen {
+        HARD_GOOD
+        SERVICE
+        SOFTWARE
+    }
 
 }
+
+' CoreBusiness +-- ProductCatalog
 
 package Engineering {
 
     class ProductSpecification
-    ProductSpecification -- ProductVersion
+    ProductSpecification --> ProductVersion
 
+}
+
+package Marketing {
+
+    class MarketingProductSpecification
+    class MarketingComm
+
+    MarketingProductSpecification --> ProductVersion
+    MarketingProductSpecification --|> ProductSpecification
 }
 
 package ProductDelivery {
 
-    class ProductInstance {
+    class ProductInstance #lightgreen {
         UUID: serialNumber
     }
 
@@ -113,13 +216,13 @@ package ProductDelivery {
 package SoftwareEngineering {
 
     class SourceCode
-    SourceCode --|> ProductSpecification
+    SourceCode -up-|> ProductSpecification
 
 }
 
 package SoftwareProducts {
 
-    class SoftwareProduct {
+    class SoftwareProduct #lightgreen {
     }
     SoftwareProduct -up-|> Product
     SoftwareUser o-- SoftwareProduct
@@ -134,9 +237,7 @@ package SoftwareProducts {
 
     Person *-- SoftwareUser
 
-
-    '===================
-    class SoftwareUser <<Accessor>> {
+    class SoftwareUser <<Accessor>> #lightgreen {
         String : userName
         byte[] : password
     }
@@ -144,34 +245,48 @@ package SoftwareProducts {
 }
 
 package DigitalSecurity {
+
     interface Accessor {
     }
 
     class AuthenticationCertificate {
+        URN: commonFQName
+        PublicKey : publicKey
+        PrivateKey : privateKey
     }
 
-    Accessor *-- AuthenticationCertificate
+    Accessor "1" *-- AuthenticationCertificate
 
     class AccessControlRule {
     }
+    note top
+        Simple or complex rules
+    end note
+    AccessControlRule *-- "accessor" Accessor
+
 }
 
 package Financial {
 
-    class PurchaseOrder
+    class PurchaseOrder {
+        FullfillmentState : state
+    }
     PurchaseOrder o-- "1,*" ExternalPaymentAccount
 
     class PurchaseItem {
         int : quantity
+        float : unitPrice
     }
 
-    PurchaseItem o-- Product
+    PurchaseItem o... ProductVersion
 
-    PurchaseOrder -- PurchaseItem
+    PurchaseOrder -- "items 1,*" PurchaseItem
+
     class CustomerAccount {
         EmailAddress : primaryEmailAddr
     }
-    CustomerAccount "1" -- "0,1" ExternalPaymentAccount
+    CustomerAccount "1" -- "0,*" ExternalPaymentAccount
+    Person *-- "0,1" CustomerAccount
 
     class ExternalPaymentAccount {
 
@@ -183,5 +298,7 @@ package Financial {
     CCPaymentAccount -up-|> ExternalPaymentAccount
 
 }
+
+' CoreBusiness +-- Financial
 
 @enduml

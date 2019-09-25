@@ -155,27 +155,27 @@
 
             <dependency>
                 <groupId>org.jkcsoft</groupId>
-                <artifactId>resteasy-ws-core</artifactId>
+                <artifactId>services-core-resteasy</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>org.jkcsoft</groupId>
-                <artifactId>user-shared-data</artifactId>
+                <artifactId>jasmin-shared-api</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>org.jkcsoft</groupId>
-                <artifactId>user-re-ms</artifactId>
+                <artifactId>user-service-resteasy</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>org.jkcsoft</groupId>
-                <artifactId>userdb-mongo-re-ms</artifactId>
+                <artifactId>userdb-service-resteasy-mongo</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>org.jkcsoft</groupId>
-                <artifactId>user-react-gulp-ui-war</artifactId>
+                <artifactId>user-ui-react</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
 
@@ -186,24 +186,24 @@
 
         <!-- Core modules -->
 
-        <module>resteasy-ws-core</module>
+        <module>services-core-resteasy</module>
 
         <!-- App modules -->
 
-        <module>user-shared-data</module>
+        <module>jasmin-shared-api</module>
 
         <module>user-webapp</module>
-        <module>user-react-simple-js</module>
-        <module>user-raw-ms</module>
-        <module>user-re-ms</module>
-        <module>userdb-mongo-re-ms</module>
+        <module>user-ui-react-simple</module>
+        <module>user-service-raw</module>
+        <module>user-service-resteasy</module>
+        <module>userdb-service-resteasy-mongo</module>
         <module>test-harness</module>
-        <module>user-angular-js</module>
-        <module>user-javax-ms</module>
+        <module>user-ui-angular</module>
+        <module>user-service-javax</module>
 
         <!-- Assemblies in various forms -->
-        <module>user-tomcat-ms-war</module>
-        <module>user-react-gulp-ui-war</module>
+        <module>jasmin-services-war-tomcat</module>
+        <module>user-ui-react</module>
         <!--        <module>user-ms-docker</module>-->
 
         <!-- Sample modules -->

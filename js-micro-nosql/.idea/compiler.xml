@@ -6,18 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="user-react-simple-js" />
-        <module name="userdb-mongo-re-ms" />
-        <module name="user-re-ms" />
-        <module name="user-javax-ms" />
-        <module name="user-shared-data" />
-        <module name="user-angular-js" />
-        <module name="user-react-gulp-ui-war" />
-        <module name="user-raw-ms" />
-        <module name="resteasy-sample-ws" />
-        <module name="user-tomcat-ms-war" />
-        <module name="test-harness" />
         <module name="user-webapp" />
+        <module name="user-service-resteasy" />
+        <module name="jasmin-shared-api" />
+        <module name="user-service-raw" />
+        <module name="user-service-javax" />
+        <module name="user-ui-angular" />
+        <module name="resteasy-sample-ws" />
+        <module name="user-ui-react" />
+        <module name="user-ui-react-simple" />
+        <module name="jasmin-services-war-tomcat" />
+        <module name="test-harness" />
+        <module name="userdb-service-resteasy-mongo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -27,7 +27,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="resteasy-ws-core" options="-proc:none" />
+      <module name="services-core-resteasy" options="-proc:none" />
     </option>
   </component>
 </project>
