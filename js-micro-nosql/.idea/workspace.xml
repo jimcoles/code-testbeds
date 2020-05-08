@@ -1,109 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91051313-cb24-4702-a570-e2323b627794" name="Default Changelist" comment="Some renaming and cleanup of unneeded .iml files from several modules.&#10;More plantUml.">
-      <change afterPath="$PROJECT_DIR$/user-service-docker/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service-docker/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service-docker/data/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="91051313-cb24-4702-a570-e2323b627794" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/app-class-diag.puml" beforeDir="false" afterPath="$PROJECT_DIR$/doc/app-class-diag.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/top-level-seq.puml" beforeDir="false" afterPath="$PROJECT_DIR$/doc/top-level-seq.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/AppInfoProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/AppInfoProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/AppStatic.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/AppStatic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/AppHomeProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/guice/AppHomeProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/BootConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/guice/BootConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/BootstrapPropertiesModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/guice/BootstrapPropertiesModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceInjectorContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceInjectorContextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceModuleRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/guice/GuiceModuleRegistrar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/RestServiceBindModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/guice/RestServiceBindModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/guice/ResteasyFilterDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/guice/ResteasyFilterDispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/model/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/model/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/model/AppHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/model/AppHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/model/GenericBootstrapConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/model/GenericBootstrapConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/shiro/BootstrapShiroModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/shiro/BootstrapShiroModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/shiro/ShiroAnnotationsModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/shiro/ShiroAnnotationsModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/shiro/ShiroMethodInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/shiro/ShiroMethodInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/utils/AnnoUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/utils/AnnoUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/Endpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/ws/Endpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/MethodInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/ws/MethodInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ParamInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/ws/ParamInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/RsServiceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/ws/RsServiceInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistryProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/ws/ServiceRegistryProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/rs/AbstractWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/ws/rs/AbstractWebService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/java/org/jkcsoft/jasmin/platform/ws/rs/RestAnnoProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/java/org/jkcsoft/jasmin/platform/ws/rs/RestAnnoProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/main/resources/META-INF/services/javax.annotation.processing.Processor" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/main/resources/META-INF/services/javax.annotation.processing.Processor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/test/java/org/jkcsoft/jasmin/test/TestReAnoProc.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/test/java/org/jkcsoft/jasmin/test/TestReAnoProc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/src/test/java/org/jkcsoft/jasmin/test/UriBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services-core-resteasy/src/test/java/org/jkcsoft/jasmin/test/UriBuilderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/classes/org/jkcsoft/jasmin/platform/shiro/BootstrapShiroModule.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/classes/org/jkcsoft/jasmin/platform/shiro/ShiroAnnotationsModule.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/classes/org/jkcsoft/jasmin/platform/shiro/ShiroMethodInterceptor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resteasy-ws-core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-harness/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-harness/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-angular-js/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-angular/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-angular-js/src/main/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-angular/src/main/web/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-javax-ms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-javax/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-javax-ms/src/main/java/org/jkcsoft/jasmin/services/userjboss/JaxRsActivator.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-javax/src/main/java/org/jkcsoft/jasmin/services/userjboss/JaxRsActivator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-javax-ms/src/main/java/org/jkcsoft/jasmin/services/userjboss/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-javax/src/main/java/org/jkcsoft/jasmin/services/userjboss/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-javax-ms/src/main/java/org/jkcsoft/jasmin/services/userjboss/UserJbService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-javax/src/main/java/org/jkcsoft/jasmin/services/userjboss/UserJbService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-javax-ms/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-javax/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-javax-ms/src/main/resources/insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-javax/src/main/resources/insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-ms-docker/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-docker/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-ms-docker/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-docker/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-ms-docker/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-docker/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-ms-docker/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-docker/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-ms-docker/src/main/assembly.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-docker/src/main/assembly.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-ms-docker/src/main/docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-docker/src/main/docker/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-ms-docker/src/main/java/com/mycompany/myapp/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-docker/src/main/java/com/mycompany/myapp/HelloWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-ms-docker/src/test/java/com/mycompany/myapp/HelloWorldIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-docker/src/test/java/com/mycompany/myapp/HelloWorldIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-raw-ms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-raw/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-re-ms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-resteasy/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-re-ms/src/main/java/org/jkcsoft/jasmin/services/user/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-resteasy/src/main/java/org/jkcsoft/jasmin/services/user/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-re-ms/src/main/java/org/jkcsoft/jasmin/services/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-resteasy/src/main/java/org/jkcsoft/jasmin/services/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-re-ms/src/main/java/org/jkcsoft/jasmin/services/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-resteasy/src/main/java/org/jkcsoft/jasmin/services/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-re-ms/src/test/java/org/jkcsoft/jasmin/test/userservice/AnnoValueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service-resteasy/src/test/java/org/jkcsoft/jasmin/test/userservice/AnnoValueTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-gulp-ui-war/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react/gulpfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-gulp-ui-war/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-gulp-ui-war/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-gulp-ui-war/src/main/javascript/app/components/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react/src/main/javascript/app/components/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-gulp-ui-war/src/main/javascript/app/components/CreateUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react/src/main/javascript/app/components/CreateUser.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-gulp-ui-war/src/main/javascript/app/components/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react/src/main/javascript/app/components/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-gulp-ui-war/src/main/javascript/app/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react/src/main/javascript/app/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-gulp-ui-war/src/main/javascript/assets/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react/src/main/javascript/assets/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-gulp-ui-war/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-gulp-ui-war/src/main/webapp/stub.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react/src/main/webapp/stub.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-gulp-ui-war/user-react-gulp-ui-war.iml" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react/user-ui-react.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-simple-js/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react-simple/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-simple-js/src/main/webapp/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react-simple/src/main/webapp/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-simple-js/src/main/webapp/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react-simple/src/main/webapp/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-simple-js/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react-simple/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-react-simple-js/src/main/webapp/sample-square-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/user-ui-react-simple/src/main/webapp/sample-square-page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-shared-data/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jasmin-shared-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-shared-data/src/main/java/org/jkcsoft/jasmin/JasminApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/jasmin-shared-api/src/main/java/org/jkcsoft/jasmin/JasminApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-shared-data/src/main/java/org/jkcsoft/jasmin/api/Services.java" beforeDir="false" afterPath="$PROJECT_DIR$/jasmin-shared-api/src/main/java/org/jkcsoft/jasmin/api/Services.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-tomcat-ms-war/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jasmin-services-war-tomcat/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-tomcat-ms-war/src/main/java/org/jkcsoft/jasmin/app/JasminAppInfoProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/jasmin-services-war-tomcat/src/main/java/org/jkcsoft/jasmin/app/JasminAppInfoProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-tomcat-ms-war/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jasmin-services-war-tomcat/src/main/resources/bootstrap.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-tomcat-ms-war/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jasmin-services-war-tomcat/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-tomcat-ms-war/src/main/resources/shiro.ini" beforeDir="false" afterPath="$PROJECT_DIR$/jasmin-services-war-tomcat/src/main/resources/shiro.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-tomcat-ms-war/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jasmin-services-war-tomcat/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userdb-mongo-re-ms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/userdb-service-resteasy-mongo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userdb-mongo-re-ms/src/main/java/org/jkcsoft/jasmin/json/bson/JacksonBsonTrans.java" beforeDir="false" afterPath="$PROJECT_DIR$/userdb-service-resteasy-mongo/src/main/java/org/jkcsoft/jasmin/json/bson/JacksonBsonTrans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userdb-mongo-re-ms/src/main/java/org/jkcsoft/jasmin/services/userdb/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/userdb-service-resteasy-mongo/src/main/java/org/jkcsoft/jasmin/services/userdb/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userdb-mongo-re-ms/src/main/java/org/jkcsoft/jasmin/services/userdb/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/userdb-service-resteasy-mongo/src/main/java/org/jkcsoft/jasmin/services/userdb/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userdb-mongo-re-ms/src/main/java/org/jkcsoft/jasmin/services/userdb/UserMongoDbService.java" beforeDir="false" afterPath="$PROJECT_DIR$/userdb-service-resteasy-mongo/src/main/java/org/jkcsoft/jasmin/services/userdb/UserMongoDbService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userdb-mongo-re-ms/src/main/java/org/jkcsoft/jasmin/services/userdb/UserPojoBsonTrans.java" beforeDir="false" afterPath="$PROJECT_DIR$/userdb-service-resteasy-mongo/src/main/java/org/jkcsoft/jasmin/services/userdb/UserPojoBsonTrans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userdb-mongo-re-ms/src/test/java/org/jkcsoft/jasmin/test/UserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/userdb-service-resteasy-mongo/src/test/java/org/jkcsoft/jasmin/test/UserTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userdb-mongo-re-ms/src/test/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/userdb-service-resteasy-mongo/src/test/resources/log4j.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -435,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568653161096</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Lots of renaming.">
+      <created>1569455694237</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1569455694237</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -465,7 +371,8 @@
     <MESSAGE value="Added some pure JBoss RS WS (no Guice). A little more work on the Javascript side." />
     <MESSAGE value="Some more React Javascript. Added top level UML seq diag. About&#10;to rename a few modules to clarify framework usage." />
     <MESSAGE value="Some renaming and cleanup of unneeded .iml files from several modules.&#10;More plantUml." />
-    <option name="LAST_COMMIT_MESSAGE" value="Some renaming and cleanup of unneeded .iml files from several modules.&#10;More plantUml." />
+    <MESSAGE value="Lots of renaming." />
+    <option name="LAST_COMMIT_MESSAGE" value="Lots of renaming." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,11 +1,5 @@
 package org.jkcsoft.codetests.wholefoods.jsonget;
 
-import com.oracle.javafx.jmx.json.JSONDocument;
-import com.oracle.javafx.jmx.json.JSONReader;
-import com.oracle.javafx.jmx.json.impl.JSONStreamReaderImpl;
-import jdk.nashorn.internal.runtime.JSONFunctions;
-
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
@@ -22,13 +16,13 @@ public class Solution {
         Reader reader = null;
         try {
             reader = new InputStreamReader(new URL(query).openStream());
-            JSONReader jsonReader = new JSONStreamReaderImpl(reader);
-            JSONDocument jsonDoc = jsonReader.build();
-            reader.close();
-            //
-            System.out.println("page => " + jsonDoc.getNumber("page"));
-            System.out.println("total => " + jsonDoc.getNumber("total"));
-            System.out.println("num objects: " + jsonDoc.object().size());
+//            JSONReader jsonReader = new JSONStreamReaderImpl(reader);
+//            JSONDocument jsonDoc = jsonReader.build();
+//            reader.close();
+//            //
+//            System.out.println("page => " + jsonDoc.getNumber("page"));
+//            System.out.println("total => " + jsonDoc.getNumber("total"));
+//            System.out.println("num objects: " + jsonDoc.object().size());
         } catch (Exception e) {
             e.printStackTrace();
         }
