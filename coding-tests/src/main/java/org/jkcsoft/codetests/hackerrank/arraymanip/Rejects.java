@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 import java.util.function.ToIntFunction;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 /**
  * @author Jim Coles
