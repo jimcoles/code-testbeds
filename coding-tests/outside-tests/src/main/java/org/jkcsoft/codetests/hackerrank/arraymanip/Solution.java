@@ -51,16 +51,33 @@ public class Solution {
         ToIntFunction<int[]> getRangeSize = intAr -> intAr[1] - intAr[0];
         ToIntFunction<int[]> getValue = intAr -> intAr[2];
 
+        int purgeEvery = 1000;
+
         public long solve(InputStream is) {
 
+            out("start SortReductionSolve");
             Scanner scanner = new Scanner(is);
             String[] nm = scanner.nextLine().split(" ");
             int numSlots = Integer.parseInt(nm[0]);
             int numDeltas = Integer.parseInt(nm[1]);
-
-            int[][] queries = new int[numDeltas][3];
-
-            for (int i = 0; i < numDeltas; i++) {
+            //
+            int queryLimit = numDeltas;
+            String envLimitText = System.getenv("QUERY_LIMIT");
+            if (envLimitText != null) {
+                int envLimit = Integer.parseInt(envLimitText);
+                if (envLimit < numDeltas) {
+                    out("overriding query limit from {0} to {1}", numDeltas, envLimitText);
+                    queryLimit = envLimit;
+                }
+                else {
+                    out("ignoring env query limit because > num of queries in input");
+                }
+            }
+            //
+            purgeEvery = Math.min(queryLimit / 100, 1000);
+            //
+            int[][] queries = new int[queryLimit][3];
+            for (int i = 0; i < queryLimit; i++) {
                 String[] queriesRowItems = scanner.nextLine().split(" ");
                 scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
@@ -70,18 +87,14 @@ public class Solution {
                 }
             }
 
-            out("start");
-
-            out("applying {1} deltas to {0} slots", numSlots, numDeltas);
-
-//            out("pre sort");
-            Comparator<int[]> compByStartThenByEnd =
-                Comparator
-                    .comparingInt(getStartIdx)
-                    .thenComparingInt(getEndIdx).reversed();
-//            Arrays.sort(queries, compByStartThenByEnd);
-//            out("post sort");
-
+            out("applying {1} deltas to {0} slots, purging every queries {2}", numSlots, queryLimit, purgeEvery);
+            //
+            long refSolution = -1;
+            boolean shouldComputeReference = envLimitText != null;
+            if (shouldComputeReference) {
+                refSolution = Rejects.FixedHolderSolution.arrayManipulation(numSlots, queries);
+                out("Reference solution => [{0}] ", refSolution);
+            }
             /*
             for each (unique) Slot start index, i, and max slot index, j
                 make list of all queries with that start index i
@@ -93,74 +106,54 @@ public class Solution {
             }
             */
 
-            Map<Integer, SortedSet<int[]>> queriesGroupedAndSorted =
+            out("start grouping by start index");
+            Map<Integer, List<int[]>> queriesGroupedUnsorted =
                 Arrays.stream(queries)
                       .collect(
                           Collectors.groupingBy(
-                              getStartIdx::applyAsInt,
-                              new Collector<int[], SortedSet<int[]>, SortedSet<int[]>>() {
+                              getStartIdx::applyAsInt
 
-                                  private final HashSet<Characteristics> characteristics = new HashSet<>();
-
-                                  @Override
-                                  public Supplier<SortedSet<int[]>> supplier() {
-                                      return () -> new TreeSet<>(Comparator.comparingInt(getEndIdx).reversed());
-                                  }
-
-                                  @Override
-                                  public BiConsumer<SortedSet<int[]>, int[]> accumulator() {
-                                      return Set::add;
-                                  }
-
-                                  @Override
-                                  public BinaryOperator<SortedSet<int[]>> combiner() {
-                                      return (ints, ints2) -> null;
-                                  }
-
-                                  @Override
-                                  public Function<SortedSet<int[]>, SortedSet<int[]>> finisher() {
-                                      return (aSet) -> aSet;
-                                  }
-
-                                  @Override
-                                  public Set<Characteristics> characteristics() {
-                                      return characteristics;
-                                  }
-                              }
                           )
                       );
+            out("finish grouping");
 
-            List<Integer> startIndexesSorted =
-                queriesGroupedAndSorted.keySet().stream().sorted().collect(Collectors.toList());
+            SortedSet<Integer> startIndexesSorted = new TreeSet<>(queriesGroupedUnsorted.keySet());
 
-            startIndexesSorted.stream().forEach(
-                (groupStartIdx) -> {
-                    int[] baseGroupFirstQuery = getFirstQueryForGroup(queriesGroupedAndSorted, groupStartIdx);
-                    List<Integer> overlappingGroupsStartIdx =
-                        startIndexesSorted.stream()
-                                         .filter(
-                                             (testIdx) -> {
-                                                 return testIdx > groupStartIdx
-                                                     && testIdx >= getStartIdx.applyAsInt(baseGroupFirstQuery)
-                                                        && testIdx <= getEndIdx.applyAsInt(baseGroupFirstQuery);
-                                             }
-                                         )
-                                         .collect(Collectors.toList());
+            startIndexesSorted.forEach((groupStartIdx) -> {
+                List<int[]> queryList =
+                    queriesGroupedUnsorted.get(groupStartIdx).stream()
+                                          .sorted(
+                                              Collections.reverseOrder(Comparator.comparingInt(
+                                                  (queryArray) -> getEndIdx.applyAsInt(queryArray)))
+                                          )
+                                          .collect(Collectors.toList());
+                int[][] groupQueriesDesc = queryList.toArray(new int[0][0]);
+                int[] baseGroupFirstQuery = groupQueriesDesc[0];
+                SortedSet<Integer> overlappingGroupsStartIdx = startIndexesSorted.tailSet(groupStartIdx).headSet(
+                    getEndIdx.applyAsInt(baseGroupFirstQuery) + 1);
 
-                    overlappingGroupsStartIdx.sort(Comparator.comparingInt(Integer::intValue).reversed());
-
-                    overlappingGroupsStartIdx.forEach(
-                        new Consumer<Integer>() {
-                            @Override
-                            public void accept(Integer slotIdx) {
-                                setSlotQueryRangesForGroup(queriesGroupedAndSorted, groupStartIdx, slotIdx);
-                            }
+                Stream<Integer> revOverlaps =
+                    overlappingGroupsStartIdx.stream().sorted(Comparator.comparingInt(Integer::intValue).reversed());
+                revOverlaps.forEach(
+                    new Consumer<Integer>() {
+                        @Override
+                        public void accept(Integer slotIdx) {
+                            setSlotQueryRangesForGroup(groupQueriesDesc, groupStartIdx, slotIdx);
                         }
-                    );
-                }
-            );
-
-            long maxValue = 0;
+                    }
+                );
+            });
+            //
+            SlotSum maxSlot = slotSumsAscending.last();
+            out("the max slot: {0}", maxSlot);
+            long maxValue = maxSlot.getValue();
+            if (shouldComputeReference) {
+                if (maxValue != refSolution)
+                    out("********* WARNING: computed value [{0}] != ref [{1} diff [{2}]]", maxValue, refSolution,
+                        refSolution - maxValue);
+                else
+                    out("========= ref values matches!");
+            }
             return maxValue;
         }
 
@@ -169,29 +162,35 @@ public class Solution {
         }
 
         SortedMap<Integer, SlotSum> slotSumsByIndex = new TreeMap<>();
-        SortedSet<SlotSum> slotSums = new TreeSet<>(Comparator.comparingLong(SlotSum::getValue));
+        SortedSet<SlotSum> slotSumsAscending =
+            new TreeSet<>(Comparator.comparingLong(SlotSum::getValue).thenComparingInt(SlotSum::getSlotIndex));
         Map<Integer, QueryRange> headSlotRangeByGroupIndex = new TreeMap<>();
 
-        private void setSlotQueryRangesForGroup(Map<Integer, SortedSet<int[]>> queriesByStartThenEnd,
-                                                Integer groupSlotStartIdx, Integer slotIdx)
+        /** For a given slot, for this query group, determines which*/
+        private void setSlotQueryRangesForGroup(int[][] groupQueriesDesc, Integer groupSlotStartIdx, Integer slotIdx)
         {
-            SortedSet<int[]> groupQueriesDesc = queriesByStartThenEnd.get(groupSlotStartIdx);
             QueryRange currentHeadRange = headSlotRangeByGroupIndex.get(groupSlotStartIdx);
             int relQIndexStart = currentHeadRange != null ? currentHeadRange.getQueryStopIdx() + 1 : 0;
-            int relQIndexStop = relQIndexStart;
+            int numQueriesInRange = 0;
             long rangeSum = 0;
-            for (int[] query : groupQueriesDesc) {
+            for (int relQueryIdx = relQIndexStart; relQueryIdx < groupQueriesDesc.length; relQueryIdx++) {
+                int[] query = groupQueriesDesc[relQueryIdx];
                 // iterate thru queries of this group until one does not contain slotIdx
                 if (doesQueryContainSlot(query, slotIdx)) {
                     rangeSum += getValue.applyAsInt(query);
-                    relQIndexStop++;
+                    numQueriesInRange++;
                 }
                 else
                     break;
             }
-            QueryRange newRange = new QueryRange(relQIndexStart, relQIndexStop, rangeSum, currentHeadRange);
-            headSlotRangeByGroupIndex.put(groupSlotStartIdx, newRange);
-            resetSlotSum(groupSlotStartIdx, slotIdx, newRange);
+            QueryRange slotRange = currentHeadRange;
+            if (numQueriesInRange > 0) {
+                QueryRange newRange =
+                    new QueryRange(relQIndexStart, relQIndexStart + numQueriesInRange - 1, rangeSum, currentHeadRange);
+                headSlotRangeByGroupIndex.put(groupSlotStartIdx, newRange);
+                slotRange = newRange;
+            }
+            resetSlotSum(groupSlotStartIdx, slotIdx, slotRange);
         }
 
         private void resetSlotSum(Integer activeGroupSlotIdx, Integer slotIdx, QueryRange newRange) {
@@ -201,22 +200,34 @@ public class Solution {
                 slotSumsByIndex.put(slotIdx, theSlotSum);
             }
             else {
-                slotSums.remove(theSlotSum);
+                if (!slotSumsAscending.remove(theSlotSum))
+                    throw new RuntimeException("failed to remove old slotsum from list");
             }
             theSlotSum.addRange(newRange);
             // reset ordering if sum was not new
-            slotSums.add(theSlotSum);
+            if (!slotSumsAscending.add(theSlotSum))
+                throw new RuntimeException("slotSumsAscending already had this sum object?");
 
             // Purge slots that can no longer possibly exceed the current max slot
-            Set<SlotSum> purgeList =
-            slotSums.headSet(slotSums.last())
-                    .stream()
-                    .filter((slotSum -> slotSum.getSlotIndex() < activeGroupSlotIdx))
-                    .collect(Collectors.toSet());
-            purgeList.forEach(slotSum -> {
-                slotSumsByIndex.remove(slotSum.getSlotIndex(), slotSum);
-                slotSums.remove(slotSum);
-            });
+            boolean shouldPurge = activeGroupSlotIdx % purgeEvery == 0;
+            if (shouldPurge) {
+                SlotSum max = slotSumsAscending.last();
+                Set<SlotSum> purgeList =
+                    slotSumsAscending.headSet(max)
+                                     .stream()
+                                     .filter((slotSum -> slotSum.getSlotIndex() < activeGroupSlotIdx))
+                                     .collect(Collectors.toSet());
+
+                if (purgeList.size() > 0 )
+                    out("purging {0} dead slots left of active group [{1}] and max=[{2}]", purgeList.size(),
+                        activeGroupSlotIdx, max);
+
+                purgeList.forEach(slotSum -> {
+//                out("purging dead slot [{0}]", slotSum);
+                    slotSumsByIndex.remove(slotSum.getSlotIndex(), slotSum);
+                    slotSumsAscending.remove(slotSum);
+                });
+            }
         }
 
         private boolean doesQueryContainSlot(int[] query, Integer slotIdx) {
@@ -244,6 +255,11 @@ public class Solution {
 
         public long getValue() {
             return value.longValue();
+        }
+
+        @Override
+        public String toString() {
+            return MessageFormat.format("Slot index={0}, value={1}", slotIndex, value);
         }
     }
 

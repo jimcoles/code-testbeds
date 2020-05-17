@@ -4,7 +4,6 @@ package org.jkcsoft.codetests.hackerrank.comparator;
  * @author Jim Coles
  */
 import java.util.*;
-import java.util.function.ToIntFunction;
 
 class Player {
     String name;

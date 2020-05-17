@@ -643,7 +643,7 @@ public class Rejects {
 
     public static class FixedHolderSolution {
 
-        private static long arrayManipulation(int numValues, int[][] queries) {
+        public static long arrayManipulation(int numValues, int[][] queries) {
             log("== Fixed Array Value Holder ==");
             QueryVector table = new QueryVector(numValues);
             for (int[] query : queries) {
@@ -674,7 +674,10 @@ public class Rejects {
 
                 for (int idx = idx1; idx <= idx2; idx++) {
                     vector[idx] += value;
-                    maxValue = Math.max(maxValue, vector[idx]);
+                    if (vector[idx] > maxValue) {
+                        log("new max slot idx (0-based) = ["+idx+"]");
+                        maxValue = vector[idx];
+                    }
                 }
                 if (log)
                     printMax();
