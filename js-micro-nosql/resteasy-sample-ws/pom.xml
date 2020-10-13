@@ -42,7 +42,7 @@
         <!-- deploying for localhost development -->
         <version.resteasy>3.7.0.Final</version.resteasy>
         <!-- SAL Core jar version -->
-        <version.junit>4.10</version.junit>
+        <version.junit>4.13.1</version.junit>
         <version.guice>3.0</version.guice>
         <version.servlet>3.0</version.servlet>
         <version.shiro>1.2.3</version.shiro>
